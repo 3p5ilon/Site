@@ -1,4 +1,4 @@
-# Sirius.xyz
+# Sirius
 
 This is my personal site, built with Next.js, Vercel, and Tailwind CSS using the [Nextfolio template](https://github.com/1msirius/Nextfolio).
 
