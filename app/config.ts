@@ -3,8 +3,7 @@ export const metaData = {
   title: "Sirius",
   name: "Sirius",
   ogImage: "/opengraph-image.png",
-  description:
-    "AI researcher, entrepreneur, and developer.",
+  description: "AI researcher, entrepreneur, and developer.",
 };
 
 export const socialLinks = {
