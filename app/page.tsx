@@ -25,8 +25,8 @@ export default function Page() {
           deeply passionate about generative AI.
         </p>
         <p>
-          My interests also include robotics, hardware, blockchain, and
-          contributing to open-source projects, primarily in AI.
+          My interests extend to robotics, hardware, blockchain, nuclear fusion,
+          open-source (primarily AI), and open research.
         </p>
         <p>
           I’m the founder and CEO of{" "}
@@ -39,9 +39,11 @@ export default function Page() {
         </p>
         <p>
           I’m also the founder of{" "}
-          <a href="https://www.opendeeplearning.xyz/">OpenDeepLearning</a>, a
-          non-profit open-source AI + education community where I teach machine
-          learning and mathematics.
+          <a href="https://www.opendeeplearning.xyz/" target="_blank">
+            OpenDeepLearning
+          </a>
+          , a non-profit open-source AI + education community where I teach
+          machine learning and mathematics.
         </p>
         <p>
           Beyond tech, I’m an avid reader (50 pages/day) with a diverse taste in
