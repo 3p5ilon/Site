@@ -15,9 +15,14 @@ export default function Page() {
           priority
         />
       </a>
-      <h1 className="mb-8 text-2xl font-medium tracking-tighter">
-        I work with models!
-      </h1>
+      <a
+        href={`${socialLinks.twitter}/status/1832361747875033393`}
+        target="_blank"
+      >
+        <h1 className="mb-8 text-2xl font-medium tracking-tighter">
+          I work with models!
+        </h1>
+      </a>
       <div className="prose prose-neutral dark:prose-invert">
         <p>
           Hi! I usually go by Sirius on the Internet, though my real name is
@@ -26,7 +31,7 @@ export default function Page() {
         </p>
         <p>
           My interests extend to robotics, hardware, blockchain, nuclear fusion,
-          open-source (primarily AI), and open research.
+          mixed reality, open-source, and open research.
         </p>
         <p>
           I’m the founder and CEO of{" "}
