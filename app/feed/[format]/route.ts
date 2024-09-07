@@ -25,7 +25,6 @@ export async function GET(
     copyright: `All rights reserved ${new Date().getFullYear()}, ${
       metaData.title
     }`,
-    updated: new Date(),
     generator: "Feed for Node.js",
     feedLinks: {
       json: `${metaData.baseUrl}/feed.json`,
