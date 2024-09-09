@@ -25,23 +25,19 @@ This is my personal site, built with Next.js, Vercel, and Tailwind CSS using the
 - **Captions**: Add descriptive captions to photos, tweets, and videos.
 - **Image Grid**: Easily showcase image galleries or photos.
 
-## Running Locally
+## Installation
 
-To run the website on your local machine, follow these steps:
+Nextfolio uses [pnpm](https://pnpm.io/installation) for dependency management, so ensure it is installed on your system.
 
-Ensure [pnpm](https://pnpm.io) is installed on your system. If not, follow the [instructions](https://pnpm.io/installation) on their website.
+Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [pnpm](https://pnpm.io/installation) to bootstrap the example:
 
 ```
-# Download the website code with Git:
-git clone https://github.com/1msirius/Site.git
+pnpm create next-app --example https://github.com/1msirius/Site imsirius
+```
 
-# Navigate into the project directory:
-cd Site
+Start the development server:
 
-# Install the dependencies:
-pnpm install
-
-# Start the development server:
+```
 pnpm dev
 ```
 
