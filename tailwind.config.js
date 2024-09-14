@@ -8,7 +8,7 @@ module.exports = {
         sans: ["var(--font-geist-sans)"],
         mono: ["var(--font-geist-mono)"],
       },
-      typography: (theme) => ({
+      typography: {
         quoteless: {
           css: {
             "blockquote p:first-of-type::before": { content: "none" },
@@ -21,7 +21,7 @@ module.exports = {
             "--tw-prose-links": "#000",
           },
         },
-      }),
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],
