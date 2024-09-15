@@ -15,12 +15,6 @@ module.exports = {
             "blockquote p:first-of-type::after": { content: "none" },
           },
         },
-        neutral: {
-          css: {
-            "--tw-prose-body": "#171717",
-            "--tw-prose-links": "#000",
-          },
-        },
       },
     },
   },
