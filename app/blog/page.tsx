@@ -12,7 +12,7 @@ export default function BlogPosts() {
   return (
     <section>
       <h1 className="mb-8 text-2xl font-medium tracking-tighter">
-        I write sometimes!
+      Thoughts, Opinions, Ideas
       </h1>
       <div>
         {allBlogs
