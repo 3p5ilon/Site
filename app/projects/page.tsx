@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function Projects() {
   return (
     <section>
-      <h1 className="mb-8 text-2xl font-medium tracking-tighter">
+      <h1 className="mb-8 text-2xl font-medium tracking-tight">
         I love to build!
       </h1>
       <div className="space-y-6">

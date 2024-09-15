@@ -11,7 +11,7 @@ export default function BlogPosts() {
 
   return (
     <section>
-      <h1 className="mb-8 text-2xl font-medium tracking-tighter">
+      <h1 className="mb-8 text-2xl font-medium tracking-tight">
       Thoughts, Opinions, Ideas
       </h1>
       <div>

@@ -19,7 +19,7 @@ export default function Page() {
         href={`${socialLinks.twitter}/status/1832361747875033393`}
         target="_blank"
       >
-        <h1 className="mb-8 text-2xl font-medium tracking-tighter">
+        <h1 className="mb-8 text-2xl font-medium tracking-tight">
           I work with models!
         </h1>
       </a>

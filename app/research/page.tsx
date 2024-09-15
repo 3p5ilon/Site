@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function Research() {
   return (
     <section>
-      <h1 className="mb-8 text-2xl font-medium tracking-tighter">
+      <h1 className="mb-8 text-2xl font-medium tracking-tight">
         I love to research!
       </h1>
       <div className="prose prose-neutral dark:prose-invert">
