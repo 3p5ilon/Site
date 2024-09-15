@@ -7,7 +7,7 @@ export const metaData = {
 };
 
 export const socialLinks = {
-  twitter: "https://x.com/1tssirius",
+  twitter: "https://x.com/1msirius_",
   github: "https://github.com/1msirius",
   goodreads: "https://www.goodreads.com/akshattalapa",
   linkedin: "https://www.linkedin.com/in/akshattalapa/",
