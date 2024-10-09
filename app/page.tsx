@@ -53,7 +53,7 @@ export default function Page() {
           <a href="https://www.goodreads.com/akshattalapa" target="_blank">
             books
           </a>{" "}
-          in different{" "}
+          in diverse{" "}
           <a
             href="https://www.goodreads.com/review/list/128272854"
             target="_blank"
