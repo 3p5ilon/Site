@@ -58,12 +58,12 @@ export default function Page() {
           <a href="https://www.goodreads.com/akshattalapa" target="_blank">
             Goodreads
           </a>
-          !).
+          ).
         </p>
         <p>Some things I believe:</p>
         <ul>
           <li>
-            Anyone can learn anything online and achieve their goals if they're
+            Anyone can learn anything on the internet (for free) if they’re
             truly passionate about it.
           </li>
           <li>
