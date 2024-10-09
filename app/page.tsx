@@ -15,14 +15,9 @@ export default function Page() {
           priority
         />
       </a>
-      <a
-        href={`${socialLinks.twitter}/status/1832361747875033393`}
-        target="_blank"
-      >
-        <h1 className="mb-8 text-2xl font-medium tracking-tight">
-          I work with models!
-        </h1>
-      </a>
+      <h1 className="mb-8 text-2xl font-medium tracking-tight">
+        I work with models!
+      </h1>
       <div className="prose prose-neutral dark:prose-invert">
         <p>
           Hi! I usually go by Sirius on the Internet, though my real name is
@@ -34,35 +29,68 @@ export default function Page() {
           mixed reality, open-source, and open research.
         </p>
         <p>
-          I’m the founder and CEO of{" "}
-          <a href="https://mithrilai.xyz/" target="_blank">
+          I'm the founder and CEO of{" "}
+          <a href="http://mithrilai.xyz/" target="_blank">
             Mithril AI
           </a>
-          , an open-source AI R&D company dedicated to enhancing the training,
-          fine-tuning, and inference capabilities of pre-trained large language
-          models, while also releasing the datasets used in their training.
+          , an open-source AI R&D company dedicated to democratizing AI. Our
+          goal is to be the 'Linux of AI' by making everything from model
+          weights to data pipelines completely open and accessible to everyone.
         </p>
         <p>
-          I’m also the founder of{" "}
+          I also founded{" "}
           <a href="https://www.opendeeplearning.xyz/" target="_blank">
             OpenDeepLearning
           </a>
-          , a non-profit open-source AI + education community where I teach
-          machine learning and mathematics.
+          , a nonprofit offering free AI education for all, and{" "}
+          <a href="https://hack2tfuture.github.io/" target="_blank">
+            Hackspace
+          </a>
+          , a club for hackers building cool projects together.
         </p>
         <p>
-          Beyond tech, I’m an avid reader (50 pages/day) with a diverse taste in
-          books, including science, sci-fi, philosophy, psychology, history,
-          classics, and biographies. Explore my bookshelf on{" "}
+          Beyond tech, I’m into music, creating AI-gen tracks with my band,{" "}
+          <a href="https://oneringband.netlify.app/" target="_blank">
+            One Ring
+          </a>
+          , and I also enjoy reading books in different genres (explore my
+          bookshelf on{" "}
           <a href="https://www.goodreads.com/akshattalapa" target="_blank">
             Goodreads
           </a>
-          .
+          !).
         </p>
+        <p>Some things I believe:</p>
+        <ul>
+          <li>
+            Anyone can learn anything online and achieve their goals if they're
+            truly passionate about it.
+          </li>
+          <li>
+            The{" "}
+            <a
+              href="https://en.wikipedia.org/wiki/Effective_accelerationism"
+              target="_blank"
+            >
+              e/acc
+            </a>{" "}
+            techno-optimist philosophy is the way forward. We should speed up
+            technological progress, especially in developing AGI.
+          </li>
+          <li>
+            Open source and open research are crucial. I believe AGI should be
+            open source for everyone's benefit.
+          </li>
+          <li>AGI is more likely to help humans than harm them.</li>
+          <li>
+            We need more nuclear fusion plants for clean, sustainable energy.
+            Fusion could meet our growing energy needs for building AGI.
+          </li>
+        </ul>
         <p>
           If you're interested in collaborating on generative AI (or not), just
           DM me on{" "}
-          <a href="https://x.com/1tssirius" target="_blank">
+          <a href={socialLinks.twitter} target="_blank">
             Twitter
           </a>
           . I'm always open to new ideas and projects!
