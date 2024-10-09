@@ -49,16 +49,22 @@ export default function Page() {
           , a club for hackers building cool projects together.
         </p>
         <p>
-          Beyond tech, I’m into music, creating AI-gen tracks with my band,{" "}
+          Beyond tech, I enjoy reading{" "}
+          <a href="https://www.goodreads.com/akshattalapa" target="_blank">
+            books
+          </a>{" "}
+          in different{" "}
+          <a
+            href="https://www.goodreads.com/review/list/128272854"
+            target="_blank"
+          >
+            genres
+          </a>
+          , and I'm also into music, creating AI-generated tracks with my band,{" "}
           <a href="https://oneringband.netlify.app/" target="_blank">
             One Ring
           </a>
-          , and I also enjoy reading books in different genres (explore my
-          bookshelf on{" "}
-          <a href="https://www.goodreads.com/akshattalapa" target="_blank">
-            Goodreads
-          </a>
-          ).
+          .
         </p>
         <p>Some things I believe:</p>
         <ul>
