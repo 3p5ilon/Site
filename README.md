@@ -1,4 +1,4 @@
-# Sirius
+# Ɛpsilon
 
 This is my personal site, built with Next.js, Vercel, and Tailwind CSS using the [Nextfolio template](https://github.com/1msirius/Nextfolio).
 
@@ -7,7 +7,6 @@ This is my personal site, built with Next.js, Vercel, and Tailwind CSS using the
 ## Technologies Used
 
 - Framework: [Next.js](https://nextjs.org/)
-- Typography: [Vercel Geist Font](https://vercel.com/font)
 - Styling: [Tailwind CSS](https://tailwindcss.com/)
 - Analytics: [Vercel Web Analytics](https://vercel.com/docs/speed-insights) and [Speed Insights](https://vercel.com/docs/speed-insights)
 - Deployment: [Vercel](https://vercel.com/)

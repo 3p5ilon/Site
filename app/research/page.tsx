@@ -3,15 +3,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Research",
-  description: "I love to research!",
+  description: "My Research",
 };
 
 export default function Research() {
   return (
     <section>
-      <h1 className="mb-8 text-2xl font-medium tracking-tight">
-        I love to research!
-      </h1>
+      <h1 className="mb-8 text-2xl font-medium">Research</h1>
       <div className="prose prose-neutral dark:prose-invert">
         <p>
           My primary research focus is to enhancing the training, fine-tuning,

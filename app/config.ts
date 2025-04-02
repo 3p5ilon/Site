@@ -1,7 +1,7 @@
 export const metaData = {
   baseUrl: "https://imsirius.xyz/",
-  title: "Sirius",
-  name: "Sirius",
+  title: "Ɛpsilon",
+  name: "Epsilon",
   ogImage: "/opengraph-image.png",
   description: "AI researcher, entrepreneur, and developer.",
 };

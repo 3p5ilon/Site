@@ -7,17 +7,27 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "Suno Labs",
+    year: 2025,
+    description: "AI-powered audiobooks app",
+    url: "https://github.com/sunolabs",
+  },
+  {
+    title: "Indic Accelerationism",
+    year: 2024,
+    description: "A movement to fast-track India’s rise",
+    url: "https://inacc.vercel.app/",
+  },
+  {
     title: "Mithril AI",
-    year: 2023,
-    description:
-      "an open-source AI R&D company dedicated to enhancing the training, fine-tuning, and inference capabilities of pre-trained large language models, while also releasing the datasets used in their training.",
-    url: "https://mithrilai.xyz/",
+    year: 2024,
+    description: "Open science AI resarch lab",
+    url: "https://github.com/mithrilai",
   },
   {
     title: "OpenDeepLearning",
     year: 2023,
-    description:
-      "a non-profit open-source AI + education community where I teach machine learning and mathematics.",
-    url: "https://www.opendeeplearning.xyz/",
+    description: "Open source AI education initiative",
+    url: "https://opendeeplearning.xyz/",
   },
 ];
