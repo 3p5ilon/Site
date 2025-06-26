@@ -1,6 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@import "./components/tweet.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 ::selection {
   background-color: #47a3f3;
@@ -22,7 +24,7 @@
 
 /* Dark theme colors */
 .dark {
-  background-color: #121212;
+  background-color: #09090B;
   --sh-class: #4c97f8;
   --sh-identifier: white;
   --sh-sign: #8996a3;
@@ -39,7 +41,7 @@ html {
 }
 
 .prose {
-  @apply text-[#000000] dark:text-[#EDEDED];
+  @apply text-[#000000] dark:text-[#FFFFFF];
 }
 
 .prose .anchor {
@@ -56,7 +58,7 @@ html {
 }
 
 .prose a {
-  @apply transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em] font-normal text-[#000000] dark:text-[#EDEDED];
+  @apply transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em] font-normal text-[#000000] dark:text-[#FFFFFF];
 }
 
 .prose a:hover {
@@ -100,7 +102,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-medium !important;
+  @apply font-medium;
 }
 
 .prose strong {
@@ -109,8 +111,13 @@ h6 {
 
 .prose > :first-child {
   /* Override removing top margin, causing layout shift */
-  margin-top: 1.25em !important;
-  margin-bottom: 1.25em !important;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.prose-quoteless blockquote p:first-of-type::before,
+.prose-quoteless blockquote p:first-of-type::after {
+  content: none;
 }
 
 pre::-webkit-scrollbar {
@@ -143,7 +150,7 @@ table {
 }
 
 .prose .callout > p {
-  margin: 0 !important;
+  margin: 0;
 }
 
 .title {

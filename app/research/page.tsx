@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Research",
-  description: "My Research",
+  description: "Ideas I explore",
 };
 
 export default function Research() {

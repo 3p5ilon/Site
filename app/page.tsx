@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { socialLinks } from "./config";
+import { socialLinks } from "./lib/config";
 
 export default function Page() {
   return (
@@ -15,11 +15,9 @@ export default function Page() {
           priority
         />
       </a>
-      <h1 className="mb-8 text-2xl font-medium">Hey, I'm Akshat!</h1>
+      <h1 className="mb-8 text-2xl font-medium">Hi, I'm Akshat!</h1>
       <div className="prose prose-neutral dark:prose-invert">
-        <p>
-          Welcome to my site ;)
-        </p>
+        <p>Welcome to my site ;)</p>
       </div>
     </section>
   );
