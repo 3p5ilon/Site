@@ -13,15 +13,9 @@ export const projects: Project[] = [
     url: "https://github.com/getvani",
   },
   {
-    title: "OpenSangeet",
-    year: 2025,
-    description: "AI powered audiobooks app",
-    url: "https://github.com/opensangeet",
-  },
-  {
     title: "Indus Labs",
     year: 2024,
-    description: "Understand India Through Data",
+    description: "Understand India through data",
     url: "https://inacc.vercel.app/",
   },
   {
@@ -43,15 +37,21 @@ export const projects: Project[] = [
     url: "https://github.com/aicademyorg",
   },
   {
-    title: "Middle Earth",
+    title: "Saregama",
     year: 2023,
-    description: "Nextjs portfolio template",
-    url: "https://nextfolio-template.vercel.app/",
+    description: "Indian classical music archive",
+    url: "https://opensangeet.netlify.app/docs/svara",
+  },
+  {
+    title: "Middle-earth",
+    year: 2023,
+    description: "Where teens build cool things!",
+    url: "https://hack2tfuture.github.io/",
   },
   {
     title: "Nextfolio",
     year: 2023,
-    description: "Simple Nextjs portfolio template",
+    description: "Nextjs portfolio template",
     url: "https://nextfolio-template.vercel.app/",
   },
 ];
