@@ -1,64 +1,61 @@
-"use client";
-
-import React from "react";
-import {
-  FaXTwitter,
-  FaGithub,
-  FaRss,
-  FaLinkedinIn,
-  FaGoodreadsG,
-  FaInstagram,
-} from "react-icons/fa6";
-import { TbMailFilled } from "react-icons/tb";
-import { metaData, socialLinks } from "app/lib/config";
-
-const YEAR = new Date().getFullYear();
-
-function SocialLink({ href, icon: Icon }) {
+function ArrowIcon() {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer">
-      <Icon />
-    </a>
-  );
-}
-
-function SocialLinks() {
-  return (
-    <div className="flex text-lg gap-3.5 float-right transition-opacity duration-300 hover:opacity-90">
-      <SocialLink href={socialLinks.twitter} icon={FaXTwitter} />
-      <SocialLink href={socialLinks.github} icon={FaGithub} />
-      {/* <SocialLink href={socialLinks.instagram} icon={FaInstagram} /> */}
-      <SocialLink href={socialLinks.goodreads} icon={FaGoodreadsG} />
-      <SocialLink href={socialLinks.linkedin} icon={FaLinkedinIn} />
-      <SocialLink href={socialLinks.email} icon={TbMailFilled} />
-      <a href="/atom" target="_self">
-        <FaRss />
-      </a>
-    </div>
-  );
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
+        fill="currentColor"
+      />
+    </svg>
+  )
 }
 
 export default function Footer() {
   return (
-    <small className="block lg:mt-24 mt-16 text-[#1C1C1C] dark:text-[#D4D4D4]">
-      <time>© {YEAR}</time>{" "}
-      <a
-        className="no-underline"
-        href={socialLinks.twitter}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {metaData.title}
-      </a>
-      <style jsx>{`
-        @media screen and (max-width: 480px) {
-          article {
-            padding-top: 2rem;
-            padding-bottom: 4rem;
-          }
-        }
-      `}</style>
-      <SocialLinks />
-    </small>
-  );
+    <footer className="mb-16">
+      <ul className="font-sm mt-8 flex flex-col space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
+        <li>
+          <a
+            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="/atom"
+          >
+            <ArrowIcon />
+            <p className="ml-2 h-7">rss</p>
+          </a>
+        </li>
+        <li>
+          <a
+            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://github.com/3p5ilon"
+          >
+            <ArrowIcon />
+            <p className="ml-2 h-7">github</p>
+          </a>
+        </li>
+        <li>
+          <a
+            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://x.com/3p5ilon"
+          >
+            <ArrowIcon />
+            <p className="ml-2 h-7">tweets</p>
+          </a>
+        </li>
+      </ul>
+      <p className="mt-8 text-neutral-600 dark:text-neutral-300 text-[15px]">
+        © {new Date().getFullYear()} Ɛpsilon
+      </p>
+    </footer>
+  )
 }

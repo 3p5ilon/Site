@@ -14,8 +14,11 @@ export default function Error({
   }, [error]);
 
   return (
-    <div>
-      <p>Oops! Something went wrong... maybe try refreshing?</p>
-    </div>
+    <section>
+      <h1 className="mb-8 text-2xl font-semibold">Something went wrong</h1>
+      <div className="prose prose-neutral dark:prose-invert">
+        <p>An unexpected error occurred. Please try refreshing the page.</p>
+      </div>
+    </section>
   );
 }

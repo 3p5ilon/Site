@@ -37,12 +37,12 @@
 .dark {
   .tweet .react-tweet-theme {
     /* Dark theme colors */
-    --tweet-bg-color: #222;
+    --tweet-bg-color: #171717;
     --tweet-bg-color-hover: var(--tweet-bg-color);
     --tweet-quoted-bg-color-hover: rgba(255, 255, 255, 0.03);
-    --tweet-border: 1px solid #333;
+    --tweet-border: 1px solid #262626;
     --tweet-color-blue-secondary: theme("colors.white");
-    --tweet-color-blue-secondary-hover: #333;
+    --tweet-color-blue-secondary-hover: #262626;
     --tweet-font-color-secondary: theme("colors.gray.400");
   }
 }

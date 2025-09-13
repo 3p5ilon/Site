@@ -11,8 +11,8 @@ export default function BlogPosts() {
 
   return (
     <section>
-      <h1 className="mb-8 text-2xl font-medium">Thoughts</h1>
-      <div>
+      <h1 className="mb-8.5 text-2xl font-semibold">writing</h1>
+      <div className="">
         {allBlogs
           .sort((a, b) => {
             if (
@@ -26,14 +26,14 @@ export default function BlogPosts() {
           .map((post) => (
             <Link
               key={post.slug}
-              className="flex flex-col space-y-1 mb-5 transition-opacity duration-200 hover:opacity-80"
+              className="flex flex-col space-y-1 mb-4"
               href={`/blog/${post.slug}`}
             >
-              <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-2">
-                <h2 className="text-black dark:text-white">
+              <div className="w-full flex flex-col gap-2 md:flex-row md:gap-4">
+                <p className="text-neutral-900 dark:text-neutral-100 md:flex-1 md:min-w-0 order-1 md:order-2">
                   {post.metadata.title}
-                </h2>
-                <p className="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
+                </p>
+                <p className="text-neutral-600 dark:text-neutral-400 tabular-nums text-[15px] md:flex-shrink-0 order-2 md:order-1">
                   {formatDate(post.metadata.publishedAt, false)}
                 </p>
               </div>

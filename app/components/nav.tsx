@@ -1,23 +1,26 @@
 import Link from "next/link";
-import { ThemeSwitch } from "./theme-switch";
-import { metaData } from "../lib/config";
+// import { ThemeSwitch } from "./theme-switch";
 
 const navItems = {
-  "/blog": { name: "Blog" },
-  "/projects": { name: "Projects" },
-  "/research": { name: "Research" },
+  "/": {
+    name: "home",
+  },
+  "/now": {
+    name: "now",
+  },
+  "/blog": {
+    name: "blog",
+  },
+  "/projects": {
+    name: "projects",
+  },
 };
 
 export function Navbar() {
   return (
-    <nav className="lg:mb-16 mb-12 py-5">
-      <div className="flex flex-col md:flex-row md:items-center justify-between">
-        <div className="flex items-center">
-          <Link href="/" className="text-3xl font-semibold">
-            {metaData.title}
-          </Link>
-        </div>
-        <div className="flex flex-row gap-4 mt-6 md:mt-0 md:ml-auto items-center">
+    <nav className="lg:mb-18 mb-12">
+      <div className="flex flex-col md:flex-row md:items-center">
+        <div className="flex flex-row gap-4 mt-6 md:mt-0 items-center">
           {Object.entries(navItems).map(([path, { name }]) => (
             <Link
               key={path}
@@ -27,7 +30,7 @@ export function Navbar() {
               {name}
             </Link>
           ))}
-          <ThemeSwitch />
+          {/* <ThemeSwitch /> */}
         </div>
       </div>
     </nav>
