@@ -14,29 +14,8 @@
   color: black;
 }
 
-:root {
-  --sh-class: #2d5e9d;
-  --sh-identifier: #354150;
-  --sh-sign: #8996a3;
-  --sh-string: #007f7a;
-  --sh-keyword: #e02518;
-  --sh-comment: #a19595;
-  --sh-jsxliterals: #6266d1;
-  --sh-property: #e25a1c;
-  --sh-entity: #e25a1c;
-}
-
 .dark {
-  background-color: #09090b;
-  --sh-class: #4c97f8;
-  --sh-identifier: white;
-  --sh-sign: #8996a3;
-  --sh-string: #0fa295;
-  --sh-keyword: #f47067;
-  --sh-comment: #a19595;
-  --sh-jsxliterals: #6266d1;
-  --sh-property: #e25a1c;
-  --sh-entity: #e25a1c;
+  background-color: #0a0a0a;
 }
 
 html {
@@ -77,23 +56,6 @@ html {
   @apply visible;
 }
 
-.prose pre {
-  @apply bg-[#F7F7F7] dark:bg-[#171717] border border-gray-300 dark:border-[#262626] rounded-lg overflow-x-auto;
-}
-
-.prose code {
-  @apply px-1 py-0.5 rounded-lg;
-}
-
-.prose pre code {
-  border: initial;
-  line-height: 1.5;
-}
-
-.prose code span {
-  @apply font-medium;
-}
-
 .prose img {
   /* Don't apply styles to next/image */
   @apply m-0;
@@ -121,6 +83,30 @@ html {
 .prose .tweet a {
   text-decoration: inherit;
   font-weight: 500;
+}
+
+/* Shiki codeblocks */
+.prose pre {
+  @apply bg-[#F7F7F7] dark:bg-[#171717] border border-gray-300 dark:border-[#262626] rounded-lg overflow-x-auto leading-snug;
+}
+
+.shiki,
+.shiki span {
+  color: var(--shiki-light);
+}
+
+html.dark .shiki,
+html.dark .shiki span {
+  color: var(--shiki-dark);
+}
+
+/* Shiki Transformers */
+.shiki .line.highlighted {
+  @apply bg-[#e0e0e0];
+}
+
+html.dark .shiki .line.highlighted {
+  @apply bg-[#353535];
 }
 
 pre::-webkit-scrollbar {

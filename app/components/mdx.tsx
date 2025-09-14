@@ -2,13 +2,14 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { highlight } from "sugar-high";
 import { TweetComponent } from "./tweet";
 import { CaptionComponent } from "./caption";
 import { YouTubeComponent } from "./youtube";
 import { ImageGrid } from "./image-grid";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
+import rehypeShiki from "@shikijs/rehype";
+import { transformerNotationHighlight } from "@shikijs/transformers";
 import "katex/dist/katex.min.css";
 
 function CustomLink(props) {
@@ -28,11 +29,6 @@ function CustomLink(props) {
 
 function RoundedImage(props) {
   return <Image alt={props.alt} className="rounded-lg" {...props} />;
-}
-
-function Code({ children, ...props }) {
-  let codeHTML = highlight(children);
-  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
 }
 
 function Table({ data }) {
@@ -113,7 +109,6 @@ let components = {
   StaticTweet: TweetComponent,
   Caption: CaptionComponent,
   YouTube: YouTubeComponent,
-  code: Code,
   Table,
   del: Strikethrough,
   Callout,
@@ -127,7 +122,21 @@ export function CustomMDX(props) {
       options={{
         mdxOptions: {
           remarkPlugins: [remarkMath],
-          rehypePlugins: [rehypeKatex],
+          rehypePlugins: [
+            [
+              rehypeShiki,
+              {
+                themes: {
+                  light: "github-light",
+                  dark: "github-dark",
+                },
+                defaultColor: false,
+                cssVariablePrefix: "--shiki-",
+                transformers: [transformerNotationHighlight()],
+              },
+            ],
+            rehypeKatex,
+          ],
         },
       }}
     />
