@@ -5,12 +5,30 @@ export function GET(request: Request) {
   const title = url.searchParams.get("title") || "Ɛpsilon";
 
   return new ImageResponse(
-    (
-      <div tw="flex items-center justify-center w-full h-full bg-white font-bold relative">
-        <div tw="absolute top-10 left-10 text-3xl">Ɛpsilon</div>
-        <div tw="text-6xl text-center">{title}</div>
+    <div
+      style={{
+        height: "100%",
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#fff",
+        fontWeight: 600,
+        position: "relative",
+      }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          top: 40,
+          left: 40,
+          fontSize: 30,
+        }}
+      >
+        Ɛpsilon
       </div>
-    ),
+      <div style={{ fontSize: 60, textAlign: "center" }}>{title}</div>
+    </div>,
     {
       width: 1200,
       height: 630,
