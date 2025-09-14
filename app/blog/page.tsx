@@ -11,8 +11,8 @@ export default function BlogPosts() {
 
   return (
     <section>
-      <h1 className="mb-8.5 text-2xl font-semibold">writing</h1>
-      <div className="">
+      <h1 className="mb-8.5 text-2xl font-semibold">Writing</h1>
+      <div>
         {allBlogs
           .sort((a, b) => {
             if (

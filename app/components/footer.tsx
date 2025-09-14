@@ -12,7 +12,7 @@ function ArrowIcon() {
         fill="currentColor"
       />
     </svg>
-  )
+  );
 }
 
 export default function Footer() {
@@ -24,10 +24,10 @@ export default function Footer() {
             className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"
-            href="/atom"
+            href="https://x.com/3p5ilon"
           >
             <ArrowIcon />
-            <p className="ml-2 h-7">rss</p>
+            <p className="ml-2 h-7">tweets</p>
           </a>
         </li>
         <li>
@@ -46,10 +46,10 @@ export default function Footer() {
             className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://x.com/3p5ilon"
+            href="/atom"
           >
             <ArrowIcon />
-            <p className="ml-2 h-7">tweets</p>
+            <p className="ml-2 h-7">rss</p>
           </a>
         </li>
       </ul>
@@ -57,5 +57,5 @@ export default function Footer() {
         © {new Date().getFullYear()} Ɛpsilon
       </p>
     </footer>
-  )
+  );
 }
