@@ -42,11 +42,6 @@ export function GET(request: Request) {
           {title}
         </div>
       </div>
-    ),
-
-    {
-      width: 1200,
-      height: 630,
-    }
+    )
   );
 }
