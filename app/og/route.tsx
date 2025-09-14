@@ -16,6 +16,10 @@ export function GET(request: Request) {
           backgroundColor: "#fff",
           fontWeight: 600,
           position: "relative",
+          textAlign: "center",
+          paddingLeft: 120,
+          paddingRight: 120,
+          boxSizing: "border-box",
         }}
       >
         <div
@@ -28,9 +32,18 @@ export function GET(request: Request) {
         >
           Ɛpsilon
         </div>
-        <div style={{ fontSize: 80, textAlign: "center" }}>{title}</div>
+        <div
+          style={{
+            fontSize: 70,
+            maxWidth: "100%",
+            wordWrap: "break-word",
+          }}
+        >
+          {title}
+        </div>
       </div>
     ),
+
     {
       width: 1200,
       height: 630,
