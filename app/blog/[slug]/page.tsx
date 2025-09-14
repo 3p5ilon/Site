@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CustomMDX } from "app/components/mdx";
 import { formatDate, getBlogPosts } from "app/lib/posts";
-import { metaData } from "app/lib/config";
+import { baseUrl } from "app/lib/metadata";
 
 export async function generateStaticParams() {
   let posts = getBlogPosts();
@@ -29,7 +29,7 @@ export async function generateMetadata({
   } = post.metadata;
   let ogImage = image
     ? image
-    : `${metaData.baseUrl}/og?title=${encodeURIComponent(title)}`;
+    : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
@@ -39,7 +39,7 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url: `${metaData.baseUrl}/blog/${post.slug}`,
+      url: `${baseUrl}/blog/${post.slug}`,
       images: [
         {
           url: ogImage,
@@ -77,12 +77,12 @@ export default async function Blog({ params }) {
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
             image: post.metadata.image
-              ? `${metaData.baseUrl}${post.metadata.image}`
+              ? `${baseUrl}${post.metadata.image}`
               : `/og?title=${encodeURIComponent(post.metadata.title)}`,
-            url: `${metaData.baseUrl}/blog/${post.slug}`,
+            url: `${baseUrl}/blog/${post.slug}`,
             author: {
               "@type": "Person",
-              name: metaData.name,
+              name: "Ɛpsilon",
             },
           }),
         }}

@@ -1,9 +1,8 @@
 import { ImageResponse } from "next/og";
-import { metaData } from "app/lib/config";
 
 export function GET(request: Request) {
   let url = new URL(request.url);
-  let title = url.searchParams.get("title") || metaData.title;
+  let title = url.searchParams.get("title") || "Ɛpsilon";
 
   return new ImageResponse(
     (

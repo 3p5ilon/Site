@@ -1,50 +1,21 @@
 import "./globals.css";
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Navbar } from "./components/nav";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/footer";
 import { ThemeProvider } from "./components/theme-switch";
-import { metaData } from "./lib/config";
+import { createMetadata } from "./lib/metadata";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(metaData.baseUrl),
+export const metadata = createMetadata({
   title: {
-    default: metaData.title,
-    template: `%s | ${metaData.title}`,
+    absolute: "Ɛpsilon",
+    template: "Ɛpsilon | %s",
   },
-  description: metaData.description,
-  openGraph: {
-    images: metaData.ogImage,
-    title: metaData.title,
-    description: metaData.description,
-    url: metaData.baseUrl,
-    siteName: metaData.name,
-    locale: "en_US",
-    type: "website",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  twitter: {
-    title: metaData.name,
-    card: "summary_large_image",
-  },
-  icons: {
-    icon: "/favicon.ico",
-  },
-};
+  description: "AI researcher, entrepreneur, and developer.",
+});
 
 export default function RootLayout({
   children,

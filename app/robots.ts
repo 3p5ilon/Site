@@ -1,4 +1,4 @@
-import { metaData } from "./lib/config";
+import { baseUrl } from "./lib/metadata";
 
 export default function robots() {
   return {
@@ -7,6 +7,6 @@ export default function robots() {
         userAgent: "*",
       },
     ],
-    sitemap: `${metaData.baseUrl}/sitemap.xml`,
+    sitemap: `${baseUrl}/sitemap.xml`,
   };
 }

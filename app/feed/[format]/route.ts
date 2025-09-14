@@ -1,6 +1,6 @@
 import { Feed } from "feed";
 import { getBlogPosts } from "app/lib/posts";
-import { metaData } from "app/lib/config";
+import { baseUrl } from "app/lib/metadata";
 import { NextResponse } from "next/server";
 
 export async function generateStaticParams() {
@@ -25,17 +25,17 @@ export async function GET(
     );
   }
 
-  const BaseUrl = metaData.baseUrl.endsWith("/")
-    ? metaData.baseUrl
-    : `${metaData.baseUrl}/`;
+    const BaseUrl = baseUrl.endsWith("/")
+    ? baseUrl
+    : `${baseUrl}/`;
 
   const feed = new Feed({
-    title: metaData.title,
-    description: metaData.description,
+    title: "Ɛpsilon",
+    description: "AI researcher, entrepreneur, and developer.",
     id: BaseUrl,
     link: BaseUrl,
     copyright: `All rights reserved ${new Date().getFullYear()}, ${
-      metaData.title
+      "Ɛpsilon"
     }`,
     generator: "Feed for Node.js",
     feedLinks: {
