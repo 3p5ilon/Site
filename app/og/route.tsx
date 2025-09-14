@@ -1,15 +1,14 @@
 import { ImageResponse } from "next/og";
 
 export function GET(request: Request) {
-  let url = new URL(request.url);
-  let title = url.searchParams.get("title") || "Ɛpsilon";
+  const url = new URL(request.url);
+  const title = url.searchParams.get("title") || "Ɛpsilon";
 
   return new ImageResponse(
     (
-      <div tw="flex flex-col w-full h-full items-center justify-center bg-white">
-        <div tw="flex flex-col md:flex-row w-full py-12 px-4 md:items-center justify-between p-8">
-          <h2 tw="flex flex-col text-4xl font-bold text-left">{title}</h2>
-        </div>
+      <div tw="flex items-center justify-center w-full h-full bg-white font-bold relative">
+        <div tw="absolute top-10 left-10 text-3xl">Ɛpsilon</div>
+        <div tw="text-6xl text-center">{title}</div>
       </div>
     ),
     {
