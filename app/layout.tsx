@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = createMetadata({
   title: {
     absolute: "Ɛpsilon",
-    template: "Ɛpsilon | %s",
+    template: "%s | Ɛpsilon",
   },
   description: "AI researcher, entrepreneur, and developer.",
 });
@@ -23,10 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${inter.className}`}
-    >
+    <html lang="en" className={`${inter.className}`}>
       <head>
         <link
           rel="alternate"
