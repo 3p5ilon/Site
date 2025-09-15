@@ -18,9 +18,9 @@ const navItems = {
 
 export function Navbar() {
   return (
-    <nav className="lg:mb-18 mb-12">
+    <nav className="lg:mb-18 mb-16">
       <div className="flex flex-col md:flex-row md:items-center">
-        <div className="flex flex-row gap-4 mt-6 md:mt-0 items-center">
+        <div className="flex flex-row gap-4 items-center">
           {Object.entries(navItems).map(([path, { name }]) => (
             <Link
               key={path}
