@@ -2,9 +2,9 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { TweetComponent } from "./tweet";
-import { CaptionComponent } from "./caption";
-import { YouTubeComponent } from "./youtube";
+import { Tweet } from "./tweet";
+import { Caption } from "./caption";
+import { YouTube } from "./youtube";
 import { ImageGrid } from "./image-grid";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
@@ -27,8 +27,10 @@ function CustomLink(props) {
   return <a target="_blank" rel="noopener noreferrer" {...props} />;
 }
 
-function RoundedImage(props) {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />;
+function CustomImage(props) {
+  return (
+    <Image alt={props.alt} {...props} fill={false} className="w-full h-auto" />
+  );
 }
 
 function Table({ data }) {
@@ -103,12 +105,12 @@ let components = {
   h4: createHeading(4),
   h5: createHeading(5),
   h6: createHeading(6),
-  Image: RoundedImage,
+  Image: CustomImage,
   ImageGrid,
   a: CustomLink,
-  StaticTweet: TweetComponent,
-  Caption: CaptionComponent,
-  YouTube: YouTubeComponent,
+  Tweet,
+  Caption,
+  YouTube,
   Table,
   del: Strikethrough,
   Callout,
