@@ -8,7 +8,9 @@ async function getAccessToken() {
   const res = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
     headers: {
-      Authorization: "Basic " + Buffer.from(client_id + ":" + client_secret).toString("base64"),
+      Authorization:
+        "Basic " +
+        Buffer.from(client_id + ":" + client_secret).toString("base64"),
       "Content-Type": "application/x-www-form-urlencoded",
     },
     body: new URLSearchParams({
@@ -26,31 +28,40 @@ export async function GET() {
     const { access_token } = await getAccessToken();
 
     // Check currently playing
-    const nowRes = await fetch("https://api.spotify.com/v1/me/player/currently-playing", {
-      headers: { Authorization: `Bearer ${access_token}` },
-      cache: "no-store",
-    });
+    const nowRes = await fetch(
+      "https://api.spotify.com/v1/me/player/currently-playing",
+      {
+        headers: { Authorization: `Bearer ${access_token}` },
+        cache: "no-store",
+      }
+    );
 
     if (nowRes.status === 200) {
       const nowData = await nowRes.json();
       const trackId = nowData?.item?.id;
       if (trackId) {
-        return NextResponse.json({ trackId });
+        return NextResponse.json({ trackId, status: "now" }); // Currently playing
       }
     }
 
     // Fallback: recently played
-    const recentRes = await fetch("https://api.spotify.com/v1/me/player/recently-played?limit=1", {
-      headers: { Authorization: `Bearer ${access_token}` },
-      cache: "no-store",
-    });
+    const recentRes = await fetch(
+      "https://api.spotify.com/v1/me/player/recently-played?limit=1",
+      {
+        headers: { Authorization: `Bearer ${access_token}` },
+        cache: "no-store",
+      }
+    );
 
     const recentData = await recentRes.json();
     const trackId = recentData?.items?.[0]?.track?.id || null;
 
-    return NextResponse.json({ trackId });
+    return NextResponse.json({ trackId, status: "recent" }); // Recently played
   } catch (e) {
     console.error("Spotify API error:", e);
-    return NextResponse.json({ trackId: null }, { status: 500 });
+    return NextResponse.json(
+      { trackId: null, status: "error" },
+      { status: 500 }
+    );
   }
 }
