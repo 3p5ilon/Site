@@ -65,7 +65,7 @@ export default function NowReading() {
                   loading="eager"
                 />
               </div>
-              <div className="flex-1 min-w-0 pr-10 flex flex-col justify-start self-start mt-1 sm:mt-1.5">
+              <div className="flex-1 min-w-0 pr-10 flex flex-col justify-start self-start mt-0.5 sm:mt-1.5">
                 <div className="text-[14px] sm:text-base font-semibold leading-4.5 sm:leading-5.5 break-words hyphens-auto">
                   {book.title}
                 </div>
