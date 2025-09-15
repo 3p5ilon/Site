@@ -3,17 +3,23 @@
 import { useEffect, useState } from "react";
 import { Spotify } from "react-spotify-embed";
 
+interface TrackResponse {
+  trackId: string | null;
+  status: "now" | "recent" | "error";
+}
+
 export default function NowPlaying() {
-  const [trackId, setTrackId] = useState<string | null>(null);
+  const [track, setTrack] = useState<TrackResponse | null>(null);
 
   useEffect(() => {
     const fetchTrack = async () => {
       try {
         const res = await fetch("/api/spotify");
-        const data = await res.json();
-        setTrackId(data?.trackId || null);
+        const data: TrackResponse = await res.json();
+        setTrack(data);
       } catch (err) {
         console.error("Error fetching track:", err);
+        setTrack({ trackId: null, status: "error" });
       }
     };
 
@@ -22,12 +28,24 @@ export default function NowPlaying() {
     return () => clearInterval(interval);
   }, []);
 
-  if (!trackId) return null;
+  const heading =
+    track?.status === "now"
+      ? "Currently playing"
+      : track?.status === "recent"
+      ? "Recently played"
+      : "Music";
 
   return (
-    <section className="flex flex-col gap-4">
-      <div className="rounded-2xl overflow-hidden">
-        <Spotify wide link={`https://open.spotify.com/track/${trackId}`} />
+    <section>
+      <h3>{heading}</h3>
+
+      <div className="rounded-2xl bg-[#F1F1F1] dark:bg-[#1F1F1F] min-h-[80px] flex items-center justify-center overflow-hidden">
+        {track?.trackId && (
+          <Spotify
+            wide
+            link={`https://open.spotify.com/track/${track.trackId}`}
+          />
+        )}
       </div>
     </section>
   );
