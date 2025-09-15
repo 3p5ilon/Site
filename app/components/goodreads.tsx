@@ -46,7 +46,7 @@ export default function NowReading() {
 
   return (
     <div className="block w-full max-w-3xl rounded-2xl overflow-hidden relative">
-      <div className="bg-[#F1F1F1] dark:bg-[#1F1F1F] transition-colors rounded-2xl min-h-[5rem] sm:min-h-[7.5rem]">
+      <div className="bg-[#F1F1F1] dark:bg-[#1F1F1F] transition-colors rounded-2xl min-h-[5.5rem] sm:min-h-[7.75rem]">
         {loading || !book ? (
           <div className="w-full h-full flex items-center justify-center"></div>
         ) : (
@@ -56,12 +56,12 @@ export default function NowReading() {
             rel="noopener noreferrer"
             className="block w-full h-full no-underline"
           >
-            <div className="relative flex items-start w-full p-3 min-h-[5rem]">
+            <div className="relative flex items-start w-full p-2 sm:p-2.5 min-h-[5.5rem]">
               <div className="mr-3 sm:mr-4 flex-shrink-0">
                 <img
                   src={book.image ?? "/book-placeholder.png"}
                   alt={book.title}
-                  className="w-12 h-16 sm:w-16 sm:h-24 rounded-md object-cover shadow-sm"
+                  className="w-12 h-18 sm:w-18 sm:h-26 rounded-md object-cover shadow-sm"
                   loading="eager"
                 />
               </div>
