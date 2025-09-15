@@ -15,7 +15,7 @@
 }
 
 .dark {
-  background-color: #0a0a0a;
+  background-color: black;
 }
 
 html {
@@ -23,7 +23,7 @@ html {
 }
 
 .prose {
-  @apply text-black dark:text-white;
+  @apply text-[#000000] dark:text-[#FFFFFF];
 }
 
 .prose .anchor {
@@ -39,14 +39,6 @@ html {
   @apply visible;
 }
 
-.prose a {
-  @apply transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-3 decoration-[0.1em] font-normal text-[#000000] dark:text-[#FFFFFF];
-}
-
-.prose a:hover {
-  @apply dark:decoration-neutral-400 decoration-neutral-600;
-}
-
 .prose .anchor:after {
   @apply text-neutral-300 dark:text-neutral-700;
   content: "#";
@@ -54,6 +46,30 @@ html {
 
 .prose *:hover > .anchor {
   @apply visible;
+}
+
+.prose h1 {
+  @apply text-2xl font-semibold;
+}
+
+.prose h2 {
+  @apply text-xl font-medium mb-4;
+}
+
+.prose h3 {
+  @apply text-lg font-medium mb-4;
+}
+
+.prose h4 {
+  @apply text-base font-medium;
+}
+
+.prose a {
+  @apply transition-all decoration-black dark:decoration-white underline-offset-4 font-normal;
+}
+
+.prose a:hover {
+  @apply text-neutral-600 dark:text-neutral-400 dark:decoration-neutral-400 decoration-neutral-600;
 }
 
 .prose img {
@@ -87,7 +103,7 @@ html {
 
 /* Shiki codeblocks */
 .prose pre {
-  @apply bg-[#F7F7F7] dark:bg-[#171717] border border-gray-300 dark:border-[#262626] rounded-lg overflow-x-auto leading-snug;
+  @apply bg-[#F1F1F1] dark:bg-[#1F1F1F] rounded-lg overflow-x-auto leading-snug;
 }
 
 .shiki,
