@@ -56,7 +56,7 @@ export default function NowReading() {
             rel="noopener noreferrer"
             className="block w-full h-full no-underline"
           >
-            <div className="relative flex items-start w-full p-2 sm:p-2.5 min-h-[5.5rem]">
+            <div className="relative flex items-start w-full p-2 sm:p-2.5 min-h-[5.5rem] sm:min-h-[7.75rem]">
               <div className="mr-3 sm:mr-4 flex-shrink-0">
                 <img
                   src={book.image ?? "/book-placeholder.png"}
@@ -66,7 +66,7 @@ export default function NowReading() {
                 />
               </div>
               <div className="flex-1 min-w-0 pr-10 flex flex-col justify-start self-start mt-0 sm:mt-1.5">
-                <div className="text-[14px] sm:text-base font-semibold leading-5.5 break-words hyphens-auto">
+                <div className="text-[14px] sm:text-base font-semibold leading-4.5 sm:leading-5.5 break-words hyphens-auto">
                   {book.title}
                 </div>
                 {derivedAuthor && (
