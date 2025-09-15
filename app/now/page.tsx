@@ -30,13 +30,10 @@ export default function Now() {
           </a>
           .
         </p>
-        <div className="mb-8">
-          <NowPlaying />
-        </div>
 
-        <div className="mb-8">
-          <NowReading />
-        </div>
+        <NowPlaying />
+        <h3>Currently reading</h3>
+        <NowReading />
       </div>
     </section>
   );
