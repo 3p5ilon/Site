@@ -6,7 +6,7 @@
   --tweet-font-color: inherit;
 
   /* Light colors */
-  --tweet-bg-color: #fff;
+  --tweet-bg-color: #ffffff;
   --tweet-bg-color-hover: var(--tweet-bg-color);
   --tweet-color-blue-secondary: theme("colors.gray.600");
   --tweet-color-blue-secondary-hover: theme("colors.gray.100");
@@ -37,12 +37,12 @@
 .dark {
   .tweet .react-tweet-theme {
     /* Dark theme colors */
-    --tweet-bg-color: #171717;
+    --tweet-bg-color: #1f1f1f;
     --tweet-bg-color-hover: var(--tweet-bg-color);
     --tweet-quoted-bg-color-hover: rgba(255, 255, 255, 0.03);
-    --tweet-border: 1px solid #262626;
+    --tweet-border: 1px solid #303030;
     --tweet-color-blue-secondary: theme("colors.white");
-    --tweet-color-blue-secondary-hover: #262626;
+    --tweet-color-blue-secondary-hover: #303030;
     --tweet-font-color-secondary: theme("colors.gray.400");
   }
 }
