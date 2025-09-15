@@ -70,7 +70,7 @@ export default function NowReading() {
             />
           </div>
           <div className="flex-1 min-w-0 flex flex-col justify-start self-start mt-2">
-            <div className="truncate font-semibold tracking-tight text-[18px] sm:text-[20px] leading-none">
+            <div className="truncate font-semibold tracking-tight text-[18px] leading-none">
               {book.title}
             </div>
             {derivedAuthor && (
