@@ -70,7 +70,7 @@ export default function NowReading() {
                   {book.title}
                 </div>
                 {derivedAuthor && (
-                  <div className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mt-1 sm:mt-1.5 break-words">
+                  <div className="text-[10px] sm:text-sm text-neutral-600 dark:text-neutral-400 mt-1 sm:mt-1.5 break-words">
                     by {derivedAuthor}
                   </div>
                 )}
