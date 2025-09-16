@@ -1,20 +1,30 @@
 import type { Metadata } from "next";
+import { stat } from "fs/promises";
+import { join } from "path";
 import NowPlaying from "../components/spotify";
 import NowReading from "../components/goodreads";
-import { formatDate } from "app/lib/posts";
+import { formatDate } from "../lib/posts";
 
 export const metadata: Metadata = {
   title: "Now",
   description: "What I'm doing right now",
 };
 
-export default function Now() {
+async function getPageLastModified(): Promise<string> {
+  const filePath = join(process.cwd(), "app/now/page.tsx");
+  const stats = await stat(filePath);
+  return formatDate(stats.mtime.toISOString());
+}
+
+export default async function Now() {
+  const lastUpdated = await getPageLastModified();
+
   return (
     <section>
       <h1 className="font-semibold text-2xl">What I'm doing now</h1>
       <div className="flex justify-between items-center mt-3 mb-8 text-sm">
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          Last updated Aug 09, 2025
+          Last updated {lastUpdated}
         </p>
       </div>
       <div className="prose prose-neutral dark:prose-invert">
@@ -30,7 +40,6 @@ export default function Now() {
           </a>
           .
         </p>
-
         <NowPlaying />
         <h3>Currently reading</h3>
         <NowReading />
