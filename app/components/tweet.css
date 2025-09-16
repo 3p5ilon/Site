@@ -40,9 +40,9 @@
     --tweet-bg-color: #1f1f1f;
     --tweet-bg-color-hover: var(--tweet-bg-color);
     --tweet-quoted-bg-color-hover: rgba(255, 255, 255, 0.03);
-    --tweet-border: 1px solid #303030;
+    --tweet-border: 1px solid #333333;
     --tweet-color-blue-secondary: theme("colors.white");
-    --tweet-color-blue-secondary-hover: #303030;
+    --tweet-color-blue-secondary-hover: #333333;
     --tweet-font-color-secondary: theme("colors.gray.400");
   }
 }
