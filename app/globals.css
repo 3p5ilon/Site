@@ -53,23 +53,23 @@ html {
 }
 
 .prose h2 {
-  @apply text-xl font-medium mb-4;
+  @apply text-xl font-semibold;
 }
 
 .prose h3 {
-  @apply text-lg font-medium mb-4;
+  @apply text-lg font-semibold;
 }
 
 .prose h4 {
-  @apply text-base font-medium;
+  @apply text-base font-semibold;
 }
 
 .prose a {
-  @apply transition-all decoration-black dark:decoration-white underline-offset-4 font-normal;
+  @apply transition-all underline-offset-4 font-normal decoration-1;
 }
 
 .prose a:hover {
-  @apply text-neutral-600 dark:text-neutral-400 dark:decoration-neutral-400 decoration-neutral-600;
+  @apply dark:decoration-[#666666] decoration-[#999999];
 }
 
 .prose img {
@@ -94,11 +94,6 @@ html {
 .prose-quoteless blockquote p:first-of-type::before,
 .prose-quoteless blockquote p:first-of-type::after {
   content: none;
-}
-
-.prose .tweet a {
-  text-decoration: inherit;
-  font-weight: 500;
 }
 
 /* Shiki codeblocks */
