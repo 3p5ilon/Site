@@ -34,45 +34,46 @@
 }
 
 /* Dark theme */
-.dark {
-  .tweet .react-tweet-theme {
-    /* Dark theme colors */
-    --tweet-bg-color: #1f1f1f;
-    --tweet-bg-color-hover: var(--tweet-bg-color);
-    --tweet-quoted-bg-color-hover: rgba(255, 255, 255, 0.03);
-    --tweet-border: 1px solid #333333;
-    --tweet-color-blue-secondary: theme("colors.white");
-    --tweet-color-blue-secondary-hover: #333333;
-    --tweet-font-color-secondary: theme("colors.gray.400");
-  }
+.dark .tweet .react-tweet-theme {
+  --tweet-bg-color: #1f1f1f;
+  --tweet-bg-color-hover: var(--tweet-bg-color);
+  --tweet-quoted-bg-color-hover: rgba(255, 255, 255, 0.03);
+  --tweet-border: 1px solid #333333;
+  --tweet-color-blue-secondary: theme("colors.white");
+  --tweet-color-blue-secondary-hover: #333333;
+  --tweet-font-color-secondary: theme("colors.gray.400");
 }
 
-/* Common styles for both themes */
 .tweet .react-tweet-theme p {
   font-size: inherit;
   line-height: 1.3rem;
 }
 
 .tweet .react-tweet-theme p a {
-  @apply border-b border-gray-300 transition-[border-color] hover:border-gray-600;
+  @apply border-b transition-[border-color] border-gray-300 hover:border-gray-600;
 }
 
-/* Dark theme link styles */
-@media (prefers-color-scheme: dark) {
-  .tweet .react-tweet-theme p a {
-    @apply border-gray-500 text-white hover:border-white;
-  }
+.dark .tweet .react-tweet-theme p a {
+  @apply text-white border-gray-500 hover:border-white;
 }
 
-/* Remove link underline on hover for both themes */
 .tweet .react-tweet-theme p a:hover {
   text-decoration: none;
 }
 
-.tweet a div {
+.tweet .react-tweet-theme a div {
+  @apply font-semibold;
+}
+
+.tweet .react-tweet-theme div a {
   @apply font-medium;
 }
 
-.tweet div[class*="mediaWrapper"] {
-  max-height: 250px;
+.tweet .react-tweet-theme a:hover {
+  text-decoration: none;
+}
+
+/* tweet not found error */
+.tweet .react-tweet-theme h3 {
+  @apply text-lg;
 }
