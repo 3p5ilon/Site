@@ -66,11 +66,11 @@ export default function NowReading() {
                 />
               </div>
               <div className="flex-1 min-w-0 pr-10 flex flex-col justify-start self-start mt-0.5 sm:mt-1.5">
-                <div className="text-sm sm:text-base font-semibold leading-4.5 sm:leading-5.5 break-words hyphens-auto">
+                <div className="text-sm sm:text-base font-medium sm:font-semibold leading-4.5 sm:leading-5.5 break-words hyphens-auto">
                   {book.title}
                 </div>
                 {derivedAuthor && (
-                  <div className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mt-1 sm:mt-1.5 break-words">
+                  <div className="text-xs sm:text-sm font-medium text-neutral-600 dark:text-neutral-400 mt-1 sm:mt-1.5 break-words">
                     by {derivedAuthor}
                   </div>
                 )}
