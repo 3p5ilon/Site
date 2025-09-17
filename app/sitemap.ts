@@ -2,20 +2,24 @@ import { MetadataRoute } from "next";
 import { getBlogPosts } from "./lib/posts";
 import { baseUrl } from "./lib/metadata";
 
-const BaseUrl = baseUrl.endsWith("/")
-  ? baseUrl
-  : `${baseUrl}/`;
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  let blogs = getBlogPosts().map((post) => ({
-    url: `${BaseUrl}blog/${post.slug}`,
-    lastModified: post.metadata.publishedAt,
+  const posts = getBlogPosts().map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.metadata.publishedAt),
+    // changeFrequency: 'monthly' as const,
+    // priority: 0.8,
   }));
 
-  let routes = ["home", "now", "blog", "projects"].map((route) => ({
-    url: `${BaseUrl}${route}`,
-    lastModified: new Date().toISOString().split("T")[0],
+  const staticRoutes = [
+    { url: baseUrl, lastModified: new Date() },
+    { url: `${baseUrl}/now`, lastModified: new Date() },
+    { url: `${baseUrl}/blog`, lastModified: new Date() },
+    { url: `${baseUrl}/projects`, lastModified: new Date() },
+  ].map(route => ({
+    ...route,
+    // changeFrequency: 'weekly' as const,
+    // priority: 1.0,
   }));
 
-  return [...routes, ...blogs];
+  return [...staticRoutes, ...posts];
 }
