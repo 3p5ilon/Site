@@ -37,7 +37,7 @@ export default function NowPlaying() {
 
   return (
     <section>
-      <h3>{heading}</h3>
+      <h2>{heading}</h2>
       <div className="bg-[#F1F1F1] dark:bg-[#1F1F1F] min-h-[80px] rounded-2xl overflow-hidden">
         {track?.trackId && (
           <Spotify
