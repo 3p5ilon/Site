@@ -17,7 +17,7 @@ export default async function Now() {
       <h1 className="font-semibold text-2xl">What I'm doing now</h1>
       <div className="flex justify-between items-center mt-3 mb-8 text-sm">
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          Last updated {formatDate(lastUpdated.toISOString())}
+          Updated {formatDate(lastUpdated.toISOString())}
         </p>
       </div>
       <div className="prose prose-neutral dark:prose-invert">
@@ -34,7 +34,7 @@ export default async function Now() {
           .
         </p>
         <NowPlaying />
-        <h3>Currently reading</h3>
+        <h2>Currently reading</h2>
         <NowReading />
       </div>
     </section>
