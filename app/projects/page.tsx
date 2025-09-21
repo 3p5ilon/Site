@@ -10,6 +10,12 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "Feedster",
+    year: 2025,
+    description: "All your feeds in one place",
+    url: "https://github.com/3p5ilon/feedster",
+  },
+  {
     title: "Vani",
     year: 2025,
     description: "AI powered audiobooks app",
