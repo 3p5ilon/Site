@@ -52,8 +52,8 @@ export async function GET(request: Request) {
           }}
         >
           <svg
-            width="30"
-            height="40"
+            width="35"
+            height="45"
             viewBox="0 0 350 450"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
