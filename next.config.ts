@@ -1,4 +1,3 @@
-
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -22,11 +21,11 @@ const nextConfig: NextConfig = {
         destination: "/feed/rss.xml",
       },
       {
-        source: "/feed",
-        destination: "/feed/rss.xml",
+        source: "/atom",
+        destination: "/feed/atom.xml",
       },
       {
-        source: "/atom",
+        source: "/feed",
         destination: "/feed/atom.xml",
       },
       {

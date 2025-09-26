@@ -18,7 +18,7 @@ export function createMetadata(override: Metadata): Metadata {
           url: "/banner.png",
         },
       ],
-      siteName: "Epsilon",
+      siteName: "Ɛpsilon",
       ...override.openGraph,
     },
     twitter: {
@@ -34,6 +34,20 @@ export function createMetadata(override: Metadata): Metadata {
         },
       ],
       ...override.twitter,
+    },
+    alternates: {
+      types: {
+        "application/rss+xml": [
+          { url: `${baseUrl}/rss.xml`, title: "RSS Feed" },
+        ],
+        "application/atom+xml": [
+          { url: `${baseUrl}/atom.xml`, title: "Atom Feed" },
+        ],
+        "application/feed+json": [
+          { url: `${baseUrl}/feed.json`, title: "JSON Feed" },
+        ],
+      },
+      ...override.alternates,
     },
     icons: {
       icon: "/favicon.ico",

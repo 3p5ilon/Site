@@ -1,22 +1,20 @@
 import { Feed } from "feed";
+import { NextResponse } from "next/server";
 import { getBlogPosts } from "app/lib/posts";
 import { baseUrl } from "app/lib/metadata";
-import { NextResponse } from "next/server";
+
+const validFormats = ["rss.xml", "atom.xml", "feed.json"] as const;
+type FeedFormat = (typeof validFormats)[number];
 
 export async function generateStaticParams() {
-  return [
-    { format: "rss.xml" },
-    { format: "atom.xml" },
-    { format: "feed.json" },
-  ];
+  return validFormats.map((format) => ({ format }));
 }
 
 export async function GET(
   _: Request,
-  { params }: { params: Promise<{ format: string }> }
+  ctx: { params: Promise<{ format: FeedFormat }> }
 ) {
-  const { format } = await params;
-  const validFormats = ["rss.xml", "atom.xml", "feed.json"];
+  const { format } = await ctx.params;
 
   if (!validFormats.includes(format)) {
     return NextResponse.json(
@@ -25,28 +23,31 @@ export async function GET(
     );
   }
 
-    const BaseUrl = baseUrl.endsWith("/")
-    ? baseUrl
-    : `${baseUrl}/`;
+  const BaseUrl = baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`;
 
   const feed = new Feed({
     title: "Ɛpsilon",
     description: "AI researcher, entrepreneur, and developer.",
     id: BaseUrl,
     link: BaseUrl,
-    copyright: `All rights reserved ${new Date().getFullYear()}, ${
-      "Ɛpsilon"
-    }`,
-    generator: "Feed for Node.js",
+    language: "en",
+    image: `${BaseUrl}banner.png`,
+    favicon: `${BaseUrl}favicon.ico`,
+    copyright: `All rights reserved ${new Date().getFullYear()}, Ɛpsilon`,
+    updated: new Date(),
+    generator: "Ɛpsilon Feeds",
     feedLinks: {
-      json: `${BaseUrl}feed.json`,
-      atom: `${BaseUrl}atom.xml`,
       rss: `${BaseUrl}rss.xml`,
+      atom: `${BaseUrl}atom.xml`,
+      json: `${BaseUrl}feed.json`,
+    },
+    author: {
+      name: "Ɛpsilon",
+      link: BaseUrl,
     },
   });
 
   const allPosts = await getBlogPosts();
-
   allPosts.forEach((post) => {
     const postUrl = `${BaseUrl}blog/${post.slug}`;
     const categories = post.metadata.tags
@@ -58,26 +59,34 @@ export async function GET(
       id: postUrl,
       link: postUrl,
       description: post.metadata.summary,
-      category: categories.map((tag) => ({
-        name: tag,
-        term: tag,
-      })),
+      // content: post.metadata.content,
+      // author: [{ name: "Ɛpsilon", link: BaseUrl }],
+      category: categories.map((tag) => ({ name: tag })),
       date: new Date(post.metadata.publishedAt),
+      image: post.metadata.image
+        ? `${BaseUrl}${post.metadata.image}`
+        : undefined,
     });
   });
 
-  const responseMap: Record<string, { content: string; contentType: string }> =
-    {
-      "rss.xml": { content: feed.rss2(), contentType: "application/xml" },
-      "atom.xml": { content: feed.atom1(), contentType: "application/xml" },
-      "feed.json": { content: feed.json1(), contentType: "application/json" },
-    };
-
-  const response = responseMap[format];
-
-  return new NextResponse(response.content, {
-    headers: {
-      "Content-Type": response.contentType,
+  const responseMap: Record<FeedFormat, { content: string; type: string }> = {
+    "rss.xml": {
+      content: feed.rss2(),
+      type: "application/rss+xml; charset=utf-8",
     },
+    "atom.xml": {
+      content: feed.atom1(),
+      type: "application/atom+xml; charset=utf-8",
+    },
+    "feed.json": {
+      content: feed.json1(),
+      type: "application/feed+json; charset=utf-8",
+    },
+  };
+
+  const { content, type } = responseMap[format];
+
+  return new NextResponse(content, {
+    headers: { "Content-Type": type },
   });
 }
