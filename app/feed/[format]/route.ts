@@ -31,7 +31,7 @@ export async function GET(
     language: "en",
     image: `${baseUrl}/banner.png`,
     favicon: `${baseUrl}/favicon.ico`,
-    copyright: `All rights reserved ${new Date().getFullYear()}, Ɛpsilon`,
+    copyright: `© ${new Date().getFullYear()} Ɛpsilon`,
     updated: new Date(),
     generator: "Ɛpsilon Feeds",
     feedLinks: {
