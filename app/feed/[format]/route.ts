@@ -23,33 +23,31 @@ export async function GET(
     );
   }
 
-  const BaseUrl = baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`;
-
   const feed = new Feed({
     title: "Ɛpsilon",
     description: "AI researcher, entrepreneur, and developer.",
-    id: BaseUrl,
-    link: BaseUrl,
+    id: baseUrl,
+    link: baseUrl,
     language: "en",
-    image: `${BaseUrl}banner.png`,
-    favicon: `${BaseUrl}favicon.ico`,
+    image: `${baseUrl}/banner.png`,
+    favicon: `${baseUrl}/favicon.ico`,
     copyright: `All rights reserved ${new Date().getFullYear()}, Ɛpsilon`,
     updated: new Date(),
     generator: "Ɛpsilon Feeds",
     feedLinks: {
-      rss: `${BaseUrl}rss.xml`,
-      atom: `${BaseUrl}atom.xml`,
-      json: `${BaseUrl}feed.json`,
+      rss: `${baseUrl}/rss.xml`,
+      atom: `${baseUrl}/atom.xml`,
+      json: `${baseUrl}/feed.json`,
     },
     author: {
       name: "Ɛpsilon",
-      link: BaseUrl,
+      link: baseUrl,
     },
   });
 
   const allPosts = await getBlogPosts();
   allPosts.forEach((post) => {
-    const postUrl = `${BaseUrl}blog/${post.slug}`;
+    const postUrl = `${baseUrl}/blog/${post.slug}`;
     const categories = post.metadata.tags
       ? post.metadata.tags.split(",").map((tag) => tag.trim())
       : [];
@@ -60,11 +58,11 @@ export async function GET(
       link: postUrl,
       description: post.metadata.summary,
       // content: post.metadata.content,
-      // author: [{ name: "Ɛpsilon", link: BaseUrl, email: "info@example.com" }],
+      // author: [{ name: "Ɛpsilon", link: baseUrl, email: "info@example.com" }],
       category: categories.map((tag) => ({ name: tag })),
       date: new Date(post.metadata.publishedAt),
       image: post.metadata.image
-        ? `${BaseUrl}${post.metadata.image}`
+        ? `${baseUrl}/${post.metadata.image}`
         : undefined,
     });
   });
