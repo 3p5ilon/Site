@@ -59,7 +59,10 @@ export async function GET(
       description: post.metadata.summary,
       // content: post.metadata.content,
       // author: [{ name: "Ɛpsilon", link: baseUrl, email: "info@example.com" }],
-      category: categories.map((tag) => ({ name: tag })),
+      category: categories.map((tag) => ({
+        name: tag,
+        term: tag,
+      })),
       date: new Date(post.metadata.publishedAt),
       image: post.metadata.image
         ? `${baseUrl}/${post.metadata.image}`
