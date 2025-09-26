@@ -26,8 +26,8 @@ export async function GET(
   const feed = new Feed({
     title: "Ɛpsilon",
     description: "AI researcher, entrepreneur, and developer.",
-    id: baseUrl,
-    link: baseUrl,
+    id: `${baseUrl}/`,
+    link: `${baseUrl}/`,
     language: "en",
     image: `${baseUrl}/banner.png`,
     favicon: `${baseUrl}/favicon.ico`,
