@@ -65,7 +65,7 @@ export async function GET(
       })),
       date: new Date(post.metadata.publishedAt),
       image: post.metadata.image
-        ? `${baseUrl}/${post.metadata.image}`
+        ? `${baseUrl}${post.metadata.image}`
         : undefined,
     });
   });
