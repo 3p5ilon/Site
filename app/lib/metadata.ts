@@ -43,7 +43,7 @@ export function createMetadata(override: Metadata): Metadata {
         "application/atom+xml": [
           { url: `${baseUrl}/atom.xml`, title: "Atom Feed" },
         ],
-        "application/feed+json": [
+        "application/json": [
           { url: `${baseUrl}/feed.json`, title: "JSON Feed" },
         ],
       },

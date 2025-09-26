@@ -58,7 +58,7 @@ export async function GET(
       link: postUrl,
       description: post.metadata.summary,
       // content: post.metadata.content,
-      // author: [{ name: "Ɛpsilon", link: baseUrl, email: "info@example.com" }],
+      // author: [{ name: "Ɛpsilon", link: baseUrl, email: "hi@example.com" }],
       category: categories.map((tag) => ({
         name: tag,
         term: tag,
@@ -81,7 +81,7 @@ export async function GET(
     },
     "feed.json": {
       content: feed.json1(),
-      type: "application/feed+json; charset=utf-8",
+      type: "application/json; charset=utf-8",
     },
   };
 
