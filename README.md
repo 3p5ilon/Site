@@ -6,11 +6,14 @@ Feel free to open a pull request for typo fixes or improvements in the [blog pos
 
 ## Features
 
-- MDX Blog Posts
-- Dark/Light Mode
-- Dynamic OG Images
-- [RSS](https://3p5ilon.vercel.app/rss), [Atom](https://3p5ilon.vercel.app/atom) & [JSON](https://3p5ilon.vercel.app/json) Feeds
-- KaTeX Math Support
+- MDX blog posts
+- Dark/light mode
+- Dynamic OG images
+- [RSS](https://3p5ilon.vercel.app/rss), [Atom](https://3p5ilon.vercel.app/atom) & [JSON](https://3p5ilon.vercel.app/json) feeds
+- KaTeX math support
+- Spotify currently playing & recently played
+- Goodreads currently reading
+- YouTube & Twitter embeds
 
 ## Tech Stack
 
@@ -26,4 +29,3 @@ Make sure [pnpm](https://pnpm.io/installation) is installed in your system, then
 ```bash
 pnpm install
 pnpm dev
-```
