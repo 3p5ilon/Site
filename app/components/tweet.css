@@ -4,14 +4,12 @@
   --tweet-container-margin: 0;
   --tweet-font-family: inherit;
   --tweet-font-color: inherit;
-
   /* Light colors */
   --tweet-bg-color: #ffffff;
   --tweet-bg-color-hover: var(--tweet-bg-color);
-  --tweet-color-blue-secondary: theme("colors.gray.600");
-  --tweet-color-blue-secondary-hover: theme("colors.gray.100");
-  --tweet-font-color-secondary: theme("colors.gray.500");
-
+  --tweet-color-blue-secondary: #4b5563;
+  --tweet-color-blue-secondary-hover: #f3f4f6;
+  --tweet-font-color-secondary: #6b7280;
   /* Common properties for both themes */
   --tweet-quoted-bg-color-hover: rgba(0, 0, 0, 0.03);
   --tweet-border: 1px solid rgb(207, 217, 222);
@@ -39,9 +37,9 @@
   --tweet-bg-color-hover: var(--tweet-bg-color);
   --tweet-quoted-bg-color-hover: rgba(255, 255, 255, 0.03);
   --tweet-border: 1px solid #333333;
-  --tweet-color-blue-secondary: theme("colors.white");
+  --tweet-color-blue-secondary: #ffffff;
   --tweet-color-blue-secondary-hover: #333333;
-  --tweet-font-color-secondary: theme("colors.gray.400");
+  --tweet-font-color-secondary: #9ca3af;
 }
 
 .tweet .react-tweet-theme p {
@@ -50,23 +48,30 @@
 }
 
 .tweet .react-tweet-theme p a {
-  @apply border-b transition-[border-color] border-gray-300 hover:border-gray-600;
-}
-
-.dark .tweet .react-tweet-theme p a {
-  @apply text-white border-gray-500 hover:border-white;
+  border-bottom: 1px solid #d1d5db;
+  transition: border-color 0.15s ease-in-out;
 }
 
 .tweet .react-tweet-theme p a:hover {
+  border-color: #4b5563;
   text-decoration: none;
 }
 
+.dark .tweet .react-tweet-theme p a {
+  color: #ffffff;
+  border-color: #6b7280;
+}
+
+.dark .tweet .react-tweet-theme p a:hover {
+  border-color: #ffffff;
+}
+
 .tweet .react-tweet-theme a div {
-  @apply font-semibold;
+  font-weight: 600;
 }
 
 .tweet .react-tweet-theme div a {
-  @apply font-medium;
+  font-weight: 500;
 }
 
 /* .tweet .react-tweet-theme a:hover {
@@ -75,5 +80,6 @@
 
 /* tweet not found error */
 .tweet .react-tweet-theme h3 {
-  @apply text-lg;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
