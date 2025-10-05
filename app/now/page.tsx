@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import NowPlaying from "../components/spotify";
-import NowReading from "../components/goodreads";
+import Listening from "../components/spotify";
+import Reading from "../components/goodreads";
+import Watching from "../components/letterboxd";
 import { getPageDates } from "../lib/page-dates";
 import { formatDate } from "../lib/posts";
-import Letternoxd from "../components/letterboxd";
 
 export const metadata: Metadata = {
   title: "Now",
@@ -34,11 +34,11 @@ export default async function Now() {
           </a>
           .
         </p>
-        <NowPlaying />
+        <Listening />
         <h2>Currently reading</h2>
-        <NowReading />
+        <Reading />
         <h2>Recently watched</h2>
-        <Letternoxd />
+        <Watching />
       </div>
     </section>
   );

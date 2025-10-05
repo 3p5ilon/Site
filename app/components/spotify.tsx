@@ -8,7 +8,7 @@ interface TrackResponse {
   status: "now" | "recent" | "error";
 }
 
-export default function NowPlaying() {
+export default function Listening() {
   const [track, setTrack] = useState<TrackResponse | null>(null);
   const [loading, setLoading] = useState(true);
 

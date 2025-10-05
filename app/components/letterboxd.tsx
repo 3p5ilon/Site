@@ -11,7 +11,7 @@ type Movie = {
   watchedDate?: string;
 };
 
-export default function Letternoxd() {
+export default function Watching() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -134,7 +134,7 @@ export default function Letternoxd() {
               role="img"
               viewBox="0 0 500 500"
               xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6"
+              className="w-5 h-5 sm:w-6 sm:h-6"
             >
               <title>Letterboxd</title>
               <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
