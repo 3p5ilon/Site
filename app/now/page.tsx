@@ -3,6 +3,7 @@ import NowPlaying from "../components/spotify";
 import NowReading from "../components/goodreads";
 import { getPageDates } from "../lib/page-dates";
 import { formatDate } from "../lib/posts";
+import Letternoxd from "../components/letterboxd";
 
 export const metadata: Metadata = {
   title: "Now",
@@ -36,6 +37,8 @@ export default async function Now() {
         <NowPlaying />
         <h2>Currently reading</h2>
         <NowReading />
+        <h2>Recently watched</h2>
+        <Letternoxd />
       </div>
     </section>
   );
