@@ -3,14 +3,14 @@ import Parser from "rss-parser";
 
 type Book = {
   title: string;
-  author: string;
+  author?: string;
+  authorUrl?: string;
   link: string;
   image: string | null;
 } | null;
 
 const parser = new Parser();
 const TTL = 1800; // cache TTL in seconds (30 min)
-
 let cache: { book: Book; ts: number } | null = null;
 
 function extractImageFromHtml(html?: string) {
@@ -21,13 +21,30 @@ function extractImageFromHtml(html?: string) {
 
 function upscaleGoodreadsImage(url: string | null): string | null {
   if (!url) return url;
-  // remove Goodreads low-res suffixes like ._SY75_ or ._SX50_
   return url.replace(/\._S[XY]\d+_.*?(?=\.[a-z]{3,4}$)/i, "");
+}
+
+async function fetchAuthorFromBookPage(
+  bookUrl: string
+): Promise<{ author?: string; authorUrl?: string }> {
+  try {
+    const html = await fetch(bookUrl).then((r) => r.text());
+    const match = html.match(
+      /<a[^>]*class="authorName"[^>]*href="([^"]+)"[^>]*>.*?<span[^>]*itemprop="name"[^>]*>([^<]+)<\/span>/i
+    );
+    if (match) {
+      const authorUrl = `${match[1]}`;
+      const author = match[2].trim();
+      return { author, authorUrl };
+    }
+    return {};
+  } catch {
+    return {};
+  }
 }
 
 export async function GET() {
   try {
-    // return cached if fresh
     if (cache && (Date.now() - cache.ts) / 1000 < TTL) {
       return NextResponse.json(cache.book);
     }
@@ -41,7 +58,6 @@ export async function GET() {
     }
 
     const feed = await parser.parseURL(feedUrl);
-
     if (!feed.items || feed.items.length === 0) {
       cache = { book: null, ts: Date.now() };
       return NextResponse.json(null);
@@ -49,42 +65,34 @@ export async function GET() {
 
     const item: any = feed.items[0];
 
-    // image: try enclosure -> description/content -> fallback null
-    let image: string | null = null;
-    if (item.enclosure?.url) image = item.enclosure.url;
-    if (!image)
-      image = extractImageFromHtml(
+    // image
+    let image: string | null =
+      item.enclosure?.url ||
+      extractImageFromHtml(
         item.content || item.contentSnippet || item.description
       );
 
-    // author
+    // basic author fallback
     let author = item.creator || item.author || "";
-    const content = String(item.content || item.description || "");
-    const byMatch = content.match(/by\s*([^<\n]+)/i);
-    if (!author && byMatch) {
-      author = byMatch[1].trim();
+    if (!author) {
+      const byMatch = String(item.content || item.description || "").match(
+        /by\s*([^<\n]+)/i
+      );
+      if (byMatch) author = byMatch[1].trim();
     }
 
-    // Fallback: Google Books if author missing
-    if (!author && (item.title || "")) {
-      try {
-        const q = encodeURIComponent(String(item.title));
-        const gb = await fetch(
-          `https://www.googleapis.com/books/v1/volumes?q=intitle:${q}&maxResults=1`
-        ).then((r) => r.json());
-        const volume = gb?.items?.[0]?.volumeInfo;
-        const gbAuthor = volume?.authors?.[0];
-        if (gbAuthor) {
-          author = gbAuthor;
-        }
-      } catch (e) {
-        // ignore fallback failures
-      }
+    // fetch exact author URL from Goodreads page
+    let authorUrl: string | undefined;
+    if (item.link) {
+      const result = await fetchAuthorFromBookPage(item.link);
+      author = result.author || author;
+      authorUrl = result.authorUrl;
     }
 
-    const book = {
+    const book: Book = {
       title: item.title || "",
       author,
+      authorUrl,
       link: item.link || "",
       image: upscaleGoodreadsImage(image),
     };
@@ -93,7 +101,6 @@ export async function GET() {
     return NextResponse.json(book);
   } catch (err) {
     console.error("Goodreads API error:", err);
-    // on error, return cached if available
     if (cache) return NextResponse.json(cache.book);
     return NextResponse.json(
       { error: "Failed to fetch Goodreads feed" },
