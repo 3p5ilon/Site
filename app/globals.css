@@ -64,13 +64,13 @@ html {
   @apply text-base font-semibold;
 }
 
-.prose a {
+/* .prose a {
   @apply transition-all underline-offset-4 font-normal decoration-1;
 }
 
 .prose a:hover {
   @apply dark:decoration-[#666666] decoration-[#999999];
-}
+} */
 
 .prose img {
   /* Don't apply styles to next/image */
