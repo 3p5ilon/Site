@@ -29,7 +29,9 @@ function CustomLink(props) {
 
 function CustomImage(props) {
   return (
-    <Image alt={props.alt} {...props} fill={false} className="w-full h-auto" />
+    <div className="my-5">
+      <Image alt={props.alt} {...props} className="w-full h-auto" />
+    </div>
   );
 }
 
@@ -60,7 +62,7 @@ function Strikethrough(props) {
 
 function Callout(props) {
   return (
-    <div className="px-4 py-3 bg-[#F7F7F7] dark:bg-[#181818] rounded p-1 text-sm flex items-center text-neutral-900 dark:text-neutral-100 mb-8">
+    <div className="p-4 my-6 bg-[#F1F1F1] dark:bg-[#1F1F1F] rounded-lg text-sm flex items-center">
       <div className="flex items-center w-4 mr-4">{props.emoji}</div>
       <div className="w-full callout leading-relaxed">{props.children}</div>
     </div>
