@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import { Navbar } from "./components/nav";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import Footer from "./components/footer";
+import { Footer } from "./components/footer";
 import { ThemeProvider } from "./components/theme-switch";
 import { createMetadata } from "./lib/metadata";
 
@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.className}`}>
-      <body className="antialiased max-w-xl mx-4 mt-12 lg:mx-auto">
+      <body className="antialiased max-w-xl mx-4 mt-12 mb-12 lg:mx-auto">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

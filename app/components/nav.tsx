@@ -18,7 +18,7 @@ const navItems = {
 
 export function Navbar() {
   return (
-    <nav className="lg:mb-18 mb-16">
+    <nav className="sm:mb-18 mb-16">
       <div className="flex flex-col md:flex-row md:items-center">
         <div className="flex flex-row gap-4 items-center">
           {Object.entries(navItems).map(([path, { name }]) => (
