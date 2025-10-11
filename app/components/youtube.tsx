@@ -3,7 +3,7 @@ import YT from "react-youtube";
 
 export function YouTube(props: any) {
   return (
-    <div className="block my-5">
+    <div className="block my-6 youtube">
       <YT
         opts={{
           height: "100%",
