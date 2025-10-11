@@ -29,7 +29,7 @@ function CustomLink(props) {
 
 function CustomImage(props) {
   return (
-    <div className="my-5">
+    <div className="my-6 image">
       <Image alt={props.alt} {...props} className="w-full h-auto" />
     </div>
   );
