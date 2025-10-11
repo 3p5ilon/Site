@@ -96,6 +96,13 @@ html {
   content: none;
 }
 
+/* Adjust embed-caption spacing for consistent layout */
+.tweet + .caption,
+.youtube + .caption,
+.image + .caption {
+  margin-top: -10px;
+}
+
 /* Shiki codeblocks */
 .prose pre {
   @apply bg-[#F1F1F1] dark:bg-[#1F1F1F] rounded-lg overflow-x-auto leading-snug;
