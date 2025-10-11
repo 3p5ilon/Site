@@ -2,13 +2,14 @@ export function Footer() {
   const links = [
     { name: "twitter", url: "https://x.com/3p5ilon" },
     { name: "github", url: "https://github.com/3p5ilon" },
-    { name: "linkedin", url: "https://www.linkedin.com/in/akshattalapa/" },
+    // { name: "linkedin", url: "https://www.linkedin.com/in/akshattalapa/" },
     // { name: 'goodreads', url: 'https://www.goodreads.com/akshattalapa' },
+    { name: "email", url: "mailto:hi3psilon@gmail.com" },
     { name: "rss", url: "/feed" },
   ];
 
   return (
-    <footer className="sm:mt-18 mt-16">
+    <footer className="sm:mt-16 mt-16">
       <div className="flex flex-col md:flex-row md:items-center">
         <div className="flex flex-row gap-4 items-center">
           {links.map((link) => (
