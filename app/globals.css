@@ -105,7 +105,7 @@ html {
 
 /* Shiki codeblocks */
 .prose pre {
-  @apply bg-[#F1F1F1] dark:bg-[#1F1F1F] rounded-lg overflow-x-auto leading-snug;
+  @apply bg-[#F1F1F1] dark:bg-[#1F1F1F] rounded-lg text-sm max-h-[500px];
 }
 
 .shiki,
@@ -120,20 +120,11 @@ html.dark .shiki span {
 
 /* Shiki Transformers */
 .shiki .line.highlighted {
-  @apply bg-[#e0e0e0];
+  @apply bg-[#EBEBEB];
 }
 
 html.dark .shiki .line.highlighted {
-  @apply bg-[#353535];
-}
-
-pre::-webkit-scrollbar {
-  display: none;
-}
-
-pre {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  @apply bg-[#3A3A3A];
 }
 
 /* Remove Safari input shadow on mobile */
