@@ -33,9 +33,9 @@ export default function Listening() {
 
   const heading =
     track?.status === "now"
-      ? "Currently playing"
+      ? "Now playing"
       : track?.status === "recent"
-      ? "Recently played"
+      ? "Last played"
       : "Music";
 
   if (loading) {

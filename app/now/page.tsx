@@ -35,9 +35,9 @@ export default async function Now() {
           .
         </p>
         <Listening />
-        <h2>Currently reading</h2>
+        <h2>Now reading</h2>
         <Reading />
-        <h2>Recently watched</h2>
+        <h2>Last watched</h2>
         <Watching />
       </div>
     </section>
