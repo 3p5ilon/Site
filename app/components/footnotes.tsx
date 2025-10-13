@@ -1,3 +1,5 @@
+import { TbArrowBack } from "react-icons/tb";
+
 export const FootNotes = ({ children }) => (
   <div className="before:w-32 before:m-auto before:content-[''] before:border-t before:border-gray-300 dark:before:border-neutral-600 before:block before:my-8">
     {children}
@@ -20,9 +22,9 @@ export const FootNote = ({ id, children }) => (
     <a
       href={`#s${id}`}
       id={`f${id}`}
-      className="no-underline hover:underline ml-1 relative hover:text-neutral-600 dark:hover:text-neutral-300 underline-offset-2 decoration-1 decoration-neutral-600 dark:decoration-neutral-300"
+      className="no-underline hover:underline ml-1 top-[-2px] text-sm relative hover:text-neutral-600 dark:hover:text-neutral-300 underline-offset-4 decoration-1 decoration-neutral-600 dark:decoration-neutral-300"
     >
-      <span style={{ fontFamily: "Arial, sans-serif" }}>{"\u21A9"}</span>
+      {"\u21A9"}
     </a>
   </p>
 );
