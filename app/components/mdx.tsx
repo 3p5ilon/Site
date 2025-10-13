@@ -2,72 +2,20 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { Tweet } from "./tweet";
-import { Caption } from "./caption";
-import { YouTube } from "./youtube";
-import { ImageGrid } from "./image-grid";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 import rehypeShiki from "@shikijs/rehype";
 import { transformerNotationHighlight } from "@shikijs/transformers";
+
+import { Tweet } from "./tweet";
+import { Caption } from "./caption";
+import { YouTube } from "./youtube";
+import { ImageGrid } from "./image-grid";
+import { FootNotes, Ref, FootNote } from "./footnotes";
+
 import "katex/dist/katex.min.css";
 
-function CustomLink(props) {
-  let href = props.href;
-  if (href.startsWith("/")) {
-    return (
-      <Link href={href} {...props}>
-        {props.children}
-      </Link>
-    );
-  }
-  if (href.startsWith("#")) {
-    return <a {...props} />;
-  }
-  return <a target="_blank" rel="noopener noreferrer" {...props} />;
-}
-
-function CustomImage(props) {
-  return (
-    <div className="my-6 image">
-      <Image alt={props.alt} {...props} className="w-full h-auto" />
-    </div>
-  );
-}
-
-function Table({ data }) {
-  let headers = data.headers.map((header, index) => (
-    <th key={index}>{header}</th>
-  ));
-  let rows = data.rows.map((row, index) => (
-    <tr key={index}>
-      {row.map((cell, cellIndex) => (
-        <td key={cellIndex}>{cell}</td>
-      ))}
-    </tr>
-  ));
-  return (
-    <table>
-      <thead>
-        <tr className="text-left">{headers}</tr>
-      </thead>
-      <tbody>{rows}</tbody>
-    </table>
-  );
-}
-
-function Strikethrough(props) {
-  return <del {...props} />;
-}
-
-function Callout(props) {
-  return (
-    <div className="p-4 my-6 bg-[#F1F1F1] dark:bg-[#1F1F1F] rounded-lg text-sm flex items-center">
-      <div className="flex items-center w-4 mr-4">{props.emoji}</div>
-      <div className="w-full callout leading-relaxed">{props.children}</div>
-    </div>
-  );
-}
+// Utility Functions
 
 function slugify(str) {
   return str
@@ -96,8 +44,54 @@ function createHeading(level) {
       children
     );
   };
+
   Heading.displayName = `Heading${level}`;
   return Heading;
+}
+
+// Custom MDX Components
+
+function CustomLink(props) {
+  let href = props.href;
+
+  if (href.startsWith("/")) {
+    return (
+      <Link href={href} {...props} className="link">
+        {props.children}
+      </Link>
+    );
+  }
+
+  if (href.startsWith("#")) {
+    return <a {...props} className="link" />;
+  }
+
+  return (
+    <a target="_blank" rel="noopener noreferrer" className="link" {...props} />
+  );
+}
+
+function CustomImage(props) {
+  return (
+    <div className="my-6 image">
+      <Image
+        alt={props.alt || ""}
+        width={props.width || 800} // Use prop or default
+        height={props.height || 600} // Use prop or default
+        {...props}
+        className="w-full h-auto rounded-lg"
+      />
+    </div>
+  );
+}
+
+function Callout(props) {
+  return (
+    <div className="px-5 my-6 bg-[#F1F1F1] dark:bg-[#1F1F1F] rounded-lg text-sm flex items-center">
+      <div className="flex items-center w-4 mr-4">{props.emoji}</div>
+      <div className="w-full callout leading-relaxed">{props.children}</div>
+    </div>
+  );
 }
 
 let components = {
@@ -113,9 +107,10 @@ let components = {
   Tweet,
   Caption,
   YouTube,
-  Table,
-  del: Strikethrough,
   Callout,
+  FootNotes,
+  Ref,
+  FootNote,
 };
 
 export function CustomMDX(props) {
