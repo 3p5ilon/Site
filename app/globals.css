@@ -5,21 +5,15 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 ::selection {
-  background-color: black;
-  color: white;
+  @apply bg-black text-white;
 }
 
 .dark ::selection {
-  background-color: white;
-  color: black;
+  @apply bg-white text-black;
 }
 
 .dark {
   background-color: black;
-}
-
-html {
-  min-width: 360px;
 }
 
 .prose {
@@ -27,7 +21,7 @@ html {
 }
 
 .prose .anchor {
-  @apply absolute invisible no-underline;
+  @apply absolute invisible no-underline font-semibold;
   margin-left: -1em;
   padding-right: 0.5em;
   width: 80%;
@@ -35,17 +29,17 @@ html {
   cursor: pointer;
 }
 
-.anchor:hover {
-  @apply visible;
-}
-
-.prose .anchor:after {
-  @apply text-neutral-300 dark:text-neutral-700;
-  content: "#";
-}
-
 .prose *:hover > .anchor {
   @apply visible;
+}
+
+.prose .anchor::after {
+  content: "#";
+  @apply text-neutral-300;
+}
+
+.dark .prose .anchor::after {
+  @apply text-neutral-600;
 }
 
 .prose h1 {
@@ -64,25 +58,8 @@ html {
   @apply text-base font-semibold;
 }
 
-/* .prose a {
-  @apply transition-all underline-offset-4 font-normal decoration-1;
-}
-
-.prose a:hover {
-  @apply dark:decoration-[#666666] decoration-[#999999];
-} */
-
-.prose img {
-  /* Don't apply styles to next/image */
-  @apply m-0;
-}
-
-.prose strong {
-  @apply font-medium;
-}
-
-.prose .callout > p {
-  margin: 0;
+.prose .link {
+  @apply transition-all duration-200 ease-in-out decoration-black dark:decoration-white hover:decoration-[#999999] hover:dark:decoration-[#666666] font-normal underline-offset-4 decoration-1;
 }
 
 .prose > :first-child {
@@ -99,45 +76,43 @@ html {
 /* Adjust embed-caption spacing for consistent layout */
 .tweet + .caption,
 .youtube + .caption,
-.image + .caption {
-  margin-top: -10px;
+.image + .caption,
+pre + .caption {
+  @apply -mt-2.5;
+}
+
+.prose img {
+  /* Don't apply styles to next/image */
+  @apply m-0;
+}
+
+/* Override Tailwind Typography's inline code */
+.prose code::before,
+.prose code::after {
+  content: none;
+}
+
+.prose code:not(pre code) {
+  @apply bg-[#F1F1F1] dark:bg-[#1F1F1F] px-1.5 py-0.5 rounded text-sm font-normal;
 }
 
 /* Shiki codeblocks */
 .prose pre {
-  @apply bg-[#F1F1F1] dark:bg-[#1F1F1F] rounded-lg text-sm max-h-[500px];
+  @apply bg-[#F1F1F1] dark:bg-[#1F1F1F] rounded-lg text-sm max-h-[576px];
 }
 
 .shiki,
 .shiki span {
-  color: var(--shiki-light);
+  @apply text-[var(--shiki-light)] dark:text-[var(--shiki-dark)];
 }
 
-html.dark .shiki,
-html.dark .shiki span {
-  color: var(--shiki-dark);
-}
-
-/* Shiki Transformers */
 .shiki .line.highlighted {
-  @apply bg-[#EBEBEB];
+  @apply bg-[#D8D8D8] dark:bg-[#3A3A3A];
 }
 
-html.dark .shiki .line.highlighted {
-  @apply bg-[#3A3A3A];
-}
-
-/* Remove Safari input shadow on mobile */
-input[type="text"],
-input[type="email"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-table {
+/* table {
   display: block;
   max-width: fit-content;
   overflow-x: auto;
   white-space: nowrap;
-}
+} */
