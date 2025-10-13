@@ -20,9 +20,9 @@ export const FootNote = ({ id, children }) => (
     <a
       href={`#s${id}`}
       id={`f${id}`}
-      className="no-underline hover:underline ml-1 relative top-[-2px] text-sm hover:text-neutral-600 dark:hover:text-neutral-300 underline-offset-4 decoration-1 decoration-neutral-600 dark:decoration-neutral-300"
+      className="no-underline hover:underline ml-1 relative hover:text-neutral-600 dark:hover:text-neutral-300 underline-offset-2 decoration-1 decoration-neutral-600 dark:decoration-neutral-300"
     >
-      {"\u21A9"}
+      <span style={{ fontFamily: "Arial, sans-serif" }}>{"\u21A9"}</span>
     </a>
   </p>
 );
