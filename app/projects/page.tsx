@@ -83,12 +83,11 @@ export default function Projects() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="w-full flex flex-col md:flex-row md:items-baseline md:gap-2">
+            <div className="w-full flex flex-col md:flex-row md:items-center md:justify-between md:gap-4">
               <p className="text-neutral-900 dark:text-neutral-100">
                 {project.title}
               </p>
-              <span className="hidden md:inline text-neutral-500"> - </span>
-              <p className="text-neutral-600 dark:text-neutral-400">
+              <p className="text-neutral-600 dark:text-neutral-400 md:text-right md:flex-shrink-0">
                 {project.description}
               </p>
             </div>

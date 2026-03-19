@@ -4,22 +4,22 @@ import { baseUrl } from "./lib/metadata";
 import { getPageDates } from "./lib/page-dates";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const posts = getBlogPosts().map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.metadata.publishedAt),
+  const dates = await getPageDates();
+  const pages = ["", "/blog", "/now", "/projects", "/research"];
+
+  const routes = pages.map((page) => ({
+    url: `${baseUrl}${page}`,
+    lastModified: (dates[page.replace("/", "") || "home"] || new Date())
+      .toISOString()
+      .split("T")[0],
   }));
 
-  const { home, now, projects } = await getPageDates();
+  const blogPosts = getBlogPosts().map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.metadata.publishedAt)
+      .toISOString()
+      .split("T")[0],
+  }));
 
-  // /blog lastModified = latest blog post date
-  const latestBlog = new Date(Math.max(...posts.map((p) => +p.lastModified)));
-
-  const staticRoutes: MetadataRoute.Sitemap = [
-    { url: baseUrl, lastModified: home },
-    { url: `${baseUrl}/now`, lastModified: now },
-    { url: `${baseUrl}/projects`, lastModified: projects },
-    { url: `${baseUrl}/blog`, lastModified: latestBlog },
-  ];
-
-  return [...staticRoutes, ...posts];
+  return [...routes, ...blogPosts];
 }

@@ -2,6 +2,10 @@
 @plugin "@tailwindcss/typography";
 @import "./components/tweet.css";
 
+@theme {
+  --color-secondary-bg: #f1f1f1;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 ::selection {
@@ -13,11 +17,8 @@
 }
 
 .dark {
-  background-color: black;
-}
-
-.prose {
-  @apply text-[#000000] dark:text-[#FFFFFF];
+  background-color: #0a0a0a;
+  --color-secondary-bg: #181818;
 }
 
 .prose .anchor {
@@ -58,9 +59,9 @@
   @apply text-base font-semibold;
 }
 
-.prose .link {
-  @apply transition-all duration-200 ease-in-out decoration-black dark:decoration-white hover:decoration-[#999999] hover:dark:decoration-[#666666] font-normal underline-offset-4 decoration-1;
-}
+/* .prose .link { */
+/*   @apply transition-all duration-200 ease-in-out decoration-black dark:decoration-white hover:decoration-[#999999] hover:dark:decoration-[#666666] font-normal underline-offset-4 decoration-1; */
+/* } */
 
 .prose > :first-child {
   /* Override removing top margin, causing layout shift */
@@ -93,12 +94,12 @@ pre + .caption {
 }
 
 .prose code:not(pre code) {
-  @apply bg-[#F1F1F1] dark:bg-[#1F1F1F] px-1.5 py-0.5 rounded text-sm font-normal;
+  @apply bg-secondary-bg px-1.5 py-0.5 rounded text-sm font-normal;
 }
 
 /* Shiki codeblocks */
 .prose pre {
-  @apply bg-[#F1F1F1] dark:bg-[#1F1F1F] rounded-lg text-sm max-h-[576px];
+  @apply bg-secondary-bg rounded-lg text-sm max-h-[576px];
 }
 
 .shiki,

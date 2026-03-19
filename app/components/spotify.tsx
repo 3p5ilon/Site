@@ -42,7 +42,7 @@ export default function Listening() {
     return (
       <section>
         <h2>{heading}</h2>
-        <div className="bg-[#F1F1F1] dark:bg-[#1F1F1F] rounded-2xl min-h-[80px] animate-pulse" />
+        <div className="bg-secondary-bg rounded-2xl min-h-[80px] animate-pulse" />
       </section>
     );
   }
@@ -51,7 +51,7 @@ export default function Listening() {
     return (
       <section>
         <h2>{heading}</h2>
-        <div className="bg-[#F1F1F1] dark:bg-[#1F1F1F] rounded-2xl min-h-[80px] flex items-center justify-center text-neutral-500 dark:text-neutral-400 text-sm">
+        <div className="bg-secondary-bg rounded-2xl min-h-[80px] flex items-center justify-center text-neutral-500 dark:text-neutral-400 text-sm">
           Failed to load Spotify data
         </div>
       </section>
@@ -61,7 +61,7 @@ export default function Listening() {
   return (
     <section>
       <h2>{heading}</h2>
-      <div className="bg-[#F1F1F1] dark:bg-[#1F1F1F] rounded-2xl overflow-hidden min-h-[80px] flex items-center justify-center">
+      <div className="bg-secondary-bg rounded-2xl overflow-hidden min-h-[80px] flex items-center justify-center">
         <Spotify
           wide
           link={`https://open.spotify.com/track/${track.trackId}`}

@@ -87,7 +87,7 @@ function CustomImage(props) {
 
 function Callout(props) {
   return (
-    <div className="px-5 my-6 bg-[#F1F1F1] dark:bg-[#1F1F1F] rounded-lg text-sm flex items-center">
+    <div className="px-5 my-6 bg-secondary-bg rounded-lg text-sm flex items-center">
       <div className="flex items-center w-4 mr-4">{props.emoji}</div>
       <div className="w-full callout leading-relaxed">{props.children}</div>
     </div>

@@ -11,7 +11,7 @@ export default function BlogPosts() {
 
   return (
     <section>
-      <h1 className="mb-8.5 text-2xl font-semibold">Writing</h1>
+      <h1 className="mb-8.5 text-2xl font-semibold">Blog</h1>
       <div>
         {allBlogs
           .sort((a, b) => {
@@ -29,11 +29,11 @@ export default function BlogPosts() {
               className="flex flex-col space-y-1 mb-4"
               href={`/blog/${post.slug}`}
             >
-              <div className="w-full flex flex-col gap-2 md:flex-row md:gap-4">
-                <p className="text-neutral-900 dark:text-neutral-100 md:flex-1 md:min-w-0 order-1 md:order-2">
+              <div className="w-full flex flex-col gap-2 md:flex-row md:items-center md:justify-between md:gap-4">
+                <p className="text-neutral-900 dark:text-neutral-100 md:flex-1 md:min-w-0 order-1 md:order-1">
                   {post.metadata.title}
                 </p>
-                <p className="text-neutral-600 dark:text-neutral-400 tabular-nums text-[15px] md:flex-shrink-0 order-2 md:order-1">
+                <p className="text-neutral-600 dark:text-neutral-400 tabular-nums text-[15px] md:flex-shrink-0 md:text-right order-2 md:order-2">
                   {formatDate(post.metadata.publishedAt, false)}
                 </p>
               </div>

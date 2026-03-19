@@ -4,7 +4,7 @@ import { join } from "path";
 const PAGE_EXTENSIONS = [".tsx", ".mdx", ".md"];
 
 async function getPageLastModified(pagePath: string): Promise<Date> {
-  const actualPath = pagePath === "" ? "(home)" : pagePath;
+  const actualPath = pagePath === "" ? "" : pagePath;
   
   for (const ext of PAGE_EXTENSIONS) {
     try {
@@ -22,11 +22,10 @@ async function getPageLastModified(pagePath: string): Promise<Date> {
 
 // Return lastModified for static pages
 export async function getPageDates() {
-  const [home, now, projects] = await Promise.all([
-    getPageLastModified(""),
-    getPageLastModified("now"), 
-    getPageLastModified("projects"),
-  ]);
+  const pages = ["", "blog", "now", "projects", "research"];
+  const dates = await Promise.all(pages.map(getPageLastModified));
   
-  return { home, now, projects };
+  return Object.fromEntries(
+    pages.map((p, i) => [p || "home", dates[i]])
+  ) as Record<string, Date>;
 }

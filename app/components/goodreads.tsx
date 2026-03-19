@@ -42,14 +42,14 @@ export default function Reading() {
 
   if (loading) {
     return (
-      <div className="bg-[#F1F1F1] dark:bg-[#1F1F1F] rounded-2xl min-h-[7rem] sm:min-h-[7.75rem] animate-pulse" />
+      <div className="bg-secondary-bg rounded-2xl min-h-[7rem] sm:min-h-[7.75rem] animate-pulse" />
     );
   }
 
   // Fallback if API fails
   if (!book) {
     return (
-      <div className="bg-[#F1F1F1] dark:bg-[#1F1F1F] rounded-2xl min-h-[7rem] sm:min-h-[7.75rem] flex items-center justify-center text-neutral-500 dark:text-neutral-400 text-sm">
+      <div className="bg-secondary-bg rounded-2xl min-h-[7rem] sm:min-h-[7.75rem] flex items-center justify-center text-neutral-500 dark:text-neutral-400 text-sm">
         Failed to load Goodreads data
       </div>
     );
@@ -57,7 +57,7 @@ export default function Reading() {
 
   return (
     <div className="block w-full max-w-3xl rounded-2xl overflow-hidden relative">
-      <div className="bg-[#F1F1F1] dark:bg-[#1F1F1F] transition-colors rounded-2xl">
+      <div className="bg-secondary-bg transition-colors rounded-2xl">
         <div className="relative flex items-start w-full p-2 sm:p-2.5">
           {/* Book image */}
           <a
